@@ -41,7 +41,7 @@ function velvet_chili_primary_menu_fallback() {
     ?>
 <ul class="nav__list">
     <li class="nav__item">
-        <a href="#home" class="nav__link nav__link--active">Home</a>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="nav__link nav__link--active">Home</a>
     </li>
     <li class="nav__item">
         <a href="#chefSpecial" class="nav__link">Chef Special</a>
@@ -64,7 +64,7 @@ function velvet_chili_mobile_menu_fallback() {
 <ul class="mobile-nav__list">
 
     <li class="mobile-nav__item">
-        <a href="#home" class="mobile-nav__link mobile-nav__link--active">Home</a>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="mobile-nav__link mobile-nav__link--active">Home</a>
     </li>
 
     <li class="mobile-nav__item">

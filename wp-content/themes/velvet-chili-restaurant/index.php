@@ -1,37 +1,7 @@
 <?php get_header(); ?>
 
-<?php
-if ( post_type_exists('vchs_hero_slide') ) {
-    
-    get_template_part('template-parts/hero', 'slider');
-
-} else {
-
-    get_template_part('template-parts/hero', 'default');
-
-}
-?>
-
-<!-- ========== Menu Highlight ========== -->
-<section class="menu-highlight" id="chefSpecial">
-    <div class="menu-highlight__image">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop"
-            alt="Velvet Chili menu dishes" loading="lazy" />
-    </div>
-    <div class="menu-highlight__text">
-        <span class="menu-highlight__kicker">Our Menu</span>
-        <h2 class="menu-highlight__title">Crafted with Fire & Spice</h2>
-        <p class="menu-highlight__subtitle">
-            From small plates to slow‑braised classics
-        </p>
-        <p class="menu-highlight__body">
-            Every dish at Velvet Chili is built around the deep, smoky warmth of
-            carefully selected chilies. Explore bold appetisers, hearty mains, and
-            desserts kissed with heat – a menu designed to surprise and comfort in
-            equal measure.
-        </p>
-    </div>
-</section>
+<?php get_template_part('template-parts/hero', 'section'); ?>
+<?php get_template_part('template-parts/menu', 'highlight'); ?>
 
 <!-- ========== Featured Menu Preview ========== -->
 <section class="featured-menu" id="ourMenu">
