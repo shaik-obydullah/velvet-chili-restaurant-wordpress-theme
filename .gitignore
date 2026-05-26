@@ -1,0 +1,25 @@
+# 1. Ignore WordPress core directories and configuration at the root
+/wp-admin/
+/wp-includes/
+/*.php
+/.htaccess
+
+# 2. Ignore local development data and media uploads
+/db_data/
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/languages/
+/wp-content/cache/
+
+# 3. Ignore all default/other themes and plugins, but keep the directories tracked
+/wp-content/plugins/*
+/wp-content/themes/*
+
+# 4. EXEMPTIONS: Do NOT ignore your custom plugin and theme
+!/wp-content/plugins/velvet-chili-restaurant-core/
+!/wp-content/themes/velvet-chili-restaurant/
+
+# 5. Allow root configuration files
+!/docker-compose.yml
+!/README.md
+!.gitignore

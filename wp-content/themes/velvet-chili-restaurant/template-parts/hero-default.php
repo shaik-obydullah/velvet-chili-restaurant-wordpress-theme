@@ -1,0 +1,13 @@
+<!-- Static Featured Image Section -->
+<section class="slider-static" aria-label="Signature dish">
+    <div class="slider-static__bg" style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop&quot;);
+        "></div>
+    <div class="slider-static__overlay"></div>
+    <div class="slider-static__content">
+        <h2 class="slider-static__title">Velvet Slow‑Braised Chili</h2>
+        <p class="slider-static__subtitle">
+            Our signature dish, simmered for 12 hours with smoked ancho & guajillo
+        </p>
+    </div>
+</section>
