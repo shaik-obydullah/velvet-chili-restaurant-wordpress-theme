@@ -5,9 +5,9 @@
         "></div>
     <div class="slider-static__overlay"></div>
     <div class="slider-static__content">
-        <h2 class="slider-static__title">Velvet Slow‑Braised Chili</h2>
+        <h2 class="slider-static__title"><?php echo esc_attr(get_bloginfo('name')); ?></h2>
         <p class="slider-static__subtitle">
-            Our signature dish, simmered for 12 hours with smoked ancho & guajillo
+            <?php echo get_bloginfo( 'description' ); ?>
         </p>
     </div>
 </section>

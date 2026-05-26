@@ -29,16 +29,13 @@ add_action('wp_enqueue_scripts', 'velvet_chili_assets');
 
 function velvet_chili_setup() {
     add_theme_support( 'title-tag' );
+    add_theme_support( 'post-thumbnails' );
+
     register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'velvet-chili' ),
     ) );
 }
 add_action( 'after_setup_theme', 'velvet_chili_setup' );
-
-
-function velvet_chili_phone() {
-    echo esc_html( get_theme_mod( 'velvet_chili_phone', '(555) 123-4567' ) );
-}
 
 function velvet_chili_primary_menu_fallback() {
     ?>

@@ -1,28 +1,16 @@
 <?php get_header(); ?>
 
-
 <?php
+if ( post_type_exists('vchs_hero_slide') ) {
+    
+    get_template_part('template-parts/hero', 'slider');
 
-        $args = [
-            'post_type' => 'vchs_hero_slide',
-            'posts_per_page' => 1
-        ];
+} else {
 
-        $query = new WP_Query($args);
+    get_template_part('template-parts/hero', 'default');
 
-        if ( post_type_exists('vchs_hero_slide') && $query->have_posts() ) {
-
-            get_template_part('template-parts/hero', 'slider');
-
-        } else {
-
-            get_template_part('template-parts/hero', 'default');
-
-        }
-
-        wp_reset_postdata();
-    ?>
-
+}
+?>
 
 <!-- ========== Menu Highlight ========== -->
 <section class="menu-highlight" id="chefSpecial">
