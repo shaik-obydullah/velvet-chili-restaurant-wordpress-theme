@@ -79,7 +79,7 @@ if ( ! $has_items ) {
 ?>
 
 <!-- ========== DYNAMIC FEATURED MENU ========== -->
-<section class="featured-menu" id="featured-menu">
+<section class="featured-menu" id="ourMenu">
     <div class="featured-menu__container">
 
         <!-- Section header (dynamic from Menu Area) -->
