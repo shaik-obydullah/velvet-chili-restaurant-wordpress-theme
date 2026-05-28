@@ -308,56 +308,26 @@ function vcrc_save_menu_area_meta( $post_id ) {
 add_action( 'save_post_menu_area', 'vcrc_save_menu_area_meta' );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ======================================================
-   Testimonials CPT
+   Testimonials
 ====================================================== */
 
-function vcrc_register_testimonial_cpt() {
+function vcrc_register_testimonial() {
     register_post_type( 'testimonial', array(
-        'labels' => array(
+        'labels'      => array(
             'name'          => 'Testimonials',
             'singular_name' => 'Testimonial',
             'add_new_item'  => 'Add New Testimonial',
             'edit_item'     => 'Edit Testimonial',
         ),
-        'public'       => false,
-        'show_ui'      => true,
-        'menu_icon'    => 'dashicons-format-quote',
-        'supports'     => array( 'title' ), // title = author name
-        'show_in_rest' => true,
+        'public'      => true,
+        'menu_icon'   => 'dashicons-format-quote',
+        'supports'    => array( 'title' ),
+        'show_in_rest'=> true,
     ) );
 }
-add_action( 'init', 'vcrc_register_testimonial_cpt' );
+add_action( 'init', 'vcrc_register_testimonial' );
 
-// Meta boxes for quote and role
 function vcrc_add_testimonial_meta_boxes() {
     add_meta_box( 'testimonial_quote', 'Quote', 'vcrc_testimonial_quote_callback', 'testimonial', 'normal', 'high' );
     add_meta_box( 'testimonial_role', 'Role / Title', 'vcrc_testimonial_role_callback', 'testimonial', 'side', 'default' );
@@ -374,67 +344,44 @@ function vcrc_testimonial_role_callback( $post ) {
     echo '<input type="text" name="testimonial_role" value="' . esc_attr( $role ) . '" style="width:100%;" placeholder="e.g., Food Critic">';
 }
 
-function vcrc_save_testimonial_meta( $post_id ) {
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-    if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+function vcrc_register_testimonial_area() {
+    register_post_type( 'testimonial_area', array(
+        'labels' => array(
+            'name'          => 'Testimonial Area',
+            'singular_name' => 'Testimonial Area',
+            'add_new_item'  => 'Edit Testimonial Area',
+            'edit_item'     => 'Edit Testimonial Area',
+        ),
+        'public'           => false,
+        'show_ui'          => true,
+        'show_in_menu'     => 'edit.php?post_type=testimonial',
+        'menu_icon'        => 'dashicons-menu',
+        'supports'         => array( 'title', 'thumbnail' ),
+        'show_in_rest'     => true,
+        'capability_type'  => 'post',
+        'map_meta_cap'     => true,
+    ) );
+}
+add_action( 'init', 'vcrc_register_testimonial_area' );
 
-    if ( isset( $_POST['testimonial_quote'] ) ) {
-        update_post_meta( $post_id, '_testimonial_quote', sanitize_textarea_field( $_POST['testimonial_quote'] ) );
+// Force only one post (redirect "Add New" to edit the existing one)
+function vcrc_limit_testimonial_area() {
+    global $pagenow;
+    if ( $pagenow === 'post-new.php' && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'testimonial_area' ) {
+        $existing = get_posts( array(
+            'post_type'      => 'testimonial_area',
+            'posts_per_page' => 1,
+            'post_status'    => 'publish',
+        ) );
+        if ( $existing ) {
+            wp_redirect( admin_url( 'post.php?post=' . $existing[0]->ID . '&action=edit' ) );
+            exit;
+        }
     }
-    if ( isset( $_POST['testimonial_role'] ) ) {
-        update_post_meta( $post_id, '_testimonial_role', sanitize_text_field( $_POST['testimonial_role'] ) );
+    // Hide the "Add New" button on the list table
+    if ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'testimonial_area' ) {
+        echo '<style>.page-title-action { display:none; }</style>';
     }
 }
-add_action( 'save_post_testimonial', 'vcrc_save_testimonial_meta' );
-
-/* ======================================================
-   Testimonials Settings (submenu under Menu Items)
-====================================================== */
-
-function vcrc_add_testimonials_settings_submenu() {
-    add_submenu_page(
-        'edit.php?post_type=menu_item',
-        'Testimonials Settings',
-        'Testimonials Settings',
-        'manage_options',
-        'testimonials-settings',
-        'vcrc_testimonials_settings_page'
-    );
-}
-add_action( 'admin_menu', 'vcrc_add_testimonials_settings_submenu' );
-
-function vcrc_register_testimonials_settings() {
-    register_setting( 'vcrc_testimonials_group', 'vcrc_testimonials_bg_image' );
-    register_setting( 'vcrc_testimonials_group', 'vcrc_testimonials_title' );
-}
-add_action( 'admin_init', 'vcrc_register_testimonials_settings' );
-
-function vcrc_testimonials_settings_page() {
-    $bg_image = get_option( 'vcrc_testimonials_bg_image', '' );
-    $title    = get_option( 'vcrc_testimonials_title', 'What Our Customers Say' );
-    ?>
-<div class="wrap">
-    <h1>Testimonials Settings</h1>
-    <form method="post" action="options.php">
-        <?php settings_fields( 'vcrc_testimonials_group' ); ?>
-        <table class="form-table">
-            <tr>
-                <th><label for="vcrc_testimonials_title">Section Title</label></th>
-                <td><input type="text" name="vcrc_testimonials_title" id="vcrc_testimonials_title"
-                        value="<?php echo esc_attr( $title ); ?>" class="regular-text"><?php echo '</th>'; ?>
-            </tr>
-            <tr>
-                <th><label for="vcrc_testimonials_bg_image">Background Image URL</label></th>
-                <td>
-                    <input type="url" name="vcrc_testimonials_bg_image" id="vcrc_testimonials_bg_image"
-                        value="<?php echo esc_url( $bg_image ); ?>" class="regular-text">
-                    <p class="description">Upload an image to the media library and copy its URL here, or use a CDN
-                        link.</p>
-                    </th>
-            </tr>
-        </table>
-        <?php submit_button(); ?>
-    </form>
-</div>
-<?php
-}
+add_action( 'admin_head', 'vcrc_limit_testimonial_area' );
+add_action( 'admin_init', 'vcrc_limit_testimonial_area' );
