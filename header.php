@@ -11,10 +11,6 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <a class="skip-link screen-reader-text" href="#primary">
-        <?php esc_html_e( 'Skip to content', 'obydullah-restaurant' ); ?>
-    </a>
-
     <!-- Header / Navbar -->
     <header class="site-header" id="siteHeader">
         <div class="header__container">
@@ -33,15 +29,18 @@
 
             <!-- Desktop Navigation -->
             <nav class="nav nav--desktop" id="desktopNav" aria-label="Main navigation">
-                <?php
+                <ul class="nav__list">
+                    <?php
                     $menu_locations = get_nav_menu_locations();
 
                     if (isset($menu_locations['primary'])) {
+
                         $menu = wp_get_nav_menu_object($menu_locations['primary']);
                         $menu_items = wp_get_nav_menu_items($menu->term_id);
 
                         if ($menu_items) {
                             echo '<ul class="nav__list">';
+
                             foreach ($menu_items as $item) {
                                 echo '<li class="nav__item">';
                                 echo '<a href="' . esc_url($item->url) . '" class="nav__link">';
@@ -49,10 +48,14 @@
                                 echo '</a>';
                                 echo '</li>';
                             }
+
                             echo '</ul>';
                         }
+                    } else {
+                        obirc_primary_menu_fallback();
                     }
                 ?>
+                </ul>
             </nav>
 
             <!-- Hamburger Toggle Button (Mobile) -->
@@ -68,36 +71,45 @@
         <div class="mobile-nav" id="mobileNav" aria-hidden="true">
             <div class="mobile-nav__backdrop"></div>
             <nav class="mobile-nav__panel" aria-label="Mobile navigation">
-                <?php
-                $menu_locations = get_nav_menu_locations();
+                <ul class="mobile-nav__list">
+                    <?php
+                        $menu_locations = get_nav_menu_locations();
 
-                if (isset($menu_locations['primary'])) {
-                    $menu = wp_get_nav_menu_object($menu_locations['primary']);
-                    $menu_items = wp_get_nav_menu_items($menu->term_id);
+                        if (isset($menu_locations['primary'])) {
 
-                    if ($menu_items) {
-                        echo '<ul class="mobile-nav__list">';
-                        foreach ($menu_items as $item) {
-                            echo '<li class="mobile-nav__item">';
-                            echo '<a href="' . esc_url($item->url) . '" class="mobile-nav__link">';
-                            echo esc_html($item->title);
-                            echo '</a>';
-                            echo '</li>';
+                            $menu = wp_get_nav_menu_object($menu_locations['primary']);
+                            $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+                            if ($menu_items) {
+                                echo '<ul class="mobile-nav__list">';
+
+                                foreach ($menu_items as $item) {
+
+                                    echo '<li class="mobile-nav__item">';
+                                    echo '<a href="' . esc_url($item->url) . '" class="mobile-nav__link">';
+                                    echo esc_html($item->title);
+                                    echo '</a>';
+                                    echo '</li>';
+                                }
+
+                                echo '</ul>';
+                            }
+
+                        } else {
+                            obirc_mobile_menu_fallback();
                         }
-                        echo '</ul>';
-                    }
-                }
-                ?>
+                    ?>
+                </ul>
 
-                <!-- Mobile Contact Info -->
+                <!-- Mobile contact info -->
                 <div class="mobile-nav__info">
                     <p class="mobile-nav__phone">
                         <i class="fa-solid fa-phone"></i>
-                        <?php echo esc_html( get_theme_mod('obirc_phone', '(555) 123-4567') ); ?>
+                        <?php echo esc_html( get_theme_mod('obydullah_restaurant_phone', '(555) 123-4567') ); ?>
                     </p>
                     <p class="mobile-nav__hours">
                         <i class="fa-regular fa-clock"></i>
-                        <?php echo esc_html( get_theme_mod('obirc_hours', 'Tue–Sun 5pm–11pm') ); ?>
+                        <?php echo esc_html( get_theme_mod('obydullah_restaurant_hours', 'Tue–Sun 5pm–11pm') ); ?>
                     </p>
                 </div>
             </nav>

@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savory & Sage Restaurant | Fine Dining Experience</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ==================== BASE.CSS ==================== -->
+    <!--
+        BASE CSS FILE
+        Purpose: Contains all CSS custom properties (variables),
+        reset styles, typography, and base element styles.
+        Change fonts, base colors, spacing, and other global
+        variables here to scale the project easily.
+    -->
+    <style>
+        /* ========== CSS RESET & BASE VARIABLES ========== */
+        :root {
+            /* --- TYPOGRAPHY --- */
+            --font-heading: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+            --font-body: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+            /* --- COLORS --- */
+            --primary: #B8413A;
+            /* Rich warm red */
+            --primary-dark: #8A2E2A;
+            /* Deeper red for hover states */
+            --primary-light: #D4695E;
+            /* Lighter accent red */
+            --secondary: #C9A050;
+            /* Gold/amber accent */
+            --secondary-dark: #A07D3A;
+            /* Darker gold */
+            --bg-warm: #FDF7F2;
+            /* Warm off-white background */
+            --bg-cream: #F9F1E7;
+            /* Cream background for sections */
+            --bg-dark: #1C120D;
+            /* Dark footer background */
+            --bg-darker: #120B08;
+            /* Darker copyright bar */
+            --text-dark: #2C1A12;
+            /* Near-black warm brown */
+            --text-body: #4A3830;
+            /* Body text brown-grey */
+            --text-muted: #7A6E65;
+            /* Muted text */
+            --text-light: #FDF7F2;
+            /* Light text for dark backgrounds */
+            --text-light-muted: #B5A89A;
+            /* Muted light text */
+            --white: #FFFFFF;
+            --border-color: #E2D5C7;
+            /* Subtle border */
+            --border-light: #EDE4D9;
+            /* Very light border */
+
+            /* --- SPACING --- */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            --spacing-4xl: 6rem;
+
+            /* --- BORDER RADIUS --- */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 50%;
+
+            /* --- SHADOWS --- */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.18), 0 6px 12px rgba(0, 0, 0, 0.08);
+
+            /* --- TRANSITIONS --- */
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+
+            /* --- LAYOUT --- */
+            --header-height: 72px;
+            --max-width: 1200px;
+            --container-padding: 1.5rem;
+        }
+
+        /* --- RESET --- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-body);
+            background-color: var(--bg-warm);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY BASE --- */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+        }
+        h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+        }
+        h3 {
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+        }
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            font-weight: 500;
+        }
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* --- UTILITY CLASSES --- */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+
+        .section-padding {
+            padding-top: var(--spacing-3xl);
+            padding-bottom: var(--spacing-3xl);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* --- BUTTON BASE --- */
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            text-align: center;
+            border: 2px solid transparent;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        .btn:focus-visible {
+            outline: 3px solid var(--secondary);
+            outline-offset: 2px;
+        }
+    </style>
+
+    <!-- ==================== THEME.CSS ==================== -->
+    <!--
+        THEME CSS FILE
+        Purpose: Restaurant-specific styles — header, slider,
+        sections, booking form, footer, and all component styles.
+        This file builds on base.css variables for consistent
+        theming across the entire website.
+    -->
+    <style>
+        /* ========== HEADER / FIXED NAV ========== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            background-color: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow var(--transition-base);
+        }
+        .site-header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* Logo */
+        .logo {
+            flex-shrink: 0;
+            z-index: 1001;
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        .logo a:hover {
+            color: var(--primary);
+        }
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Desktop Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+        .main-nav ul {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+        .main-nav ul li a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+            position: relative;
+            transition: color var(--transition-fast);
+            white-space: nowrap;
+        }
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width var(--transition-base);
+            border-radius: 1px;
+        }
+        .main-nav ul li a:hover::after,
+        .main-nav ul li a.active::after {
+            width: 100%;
+        }
+        .main-nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Header CTA Button */
+        .btn-header {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+        .btn-header:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: var(--white);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hamburger Toggle */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 6px;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background-color: var(--text-dark);
+            border-radius: 2px;
+            transition: all var(--transition-base);
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(0) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(0) rotate(-45deg);
+        }
+
+        /* Mobile Nav Panel */
+        .mobile-nav-panel {
+            display: none;
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            padding: var(--spacing-lg) var(--container-padding);
+            z-index: 999;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all var(--transition-base);
+            pointer-events: none;
+        }
+        .mobile-nav-panel.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-nav-panel ul {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        .mobile-nav-panel ul li a {
+            display: block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.05rem;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+        .mobile-nav-panel ul li a:hover {
+            background-color: var(--bg-cream);
+            color: var(--primary);
+        }
+        .mobile-nav-panel .btn-header {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: var(--spacing-md);
+            padding: 0.85rem;
+            font-size: 0.95rem;
+        }
+
+        /* ========== HERO SLIDER ========== */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            min-height: 500px;
+            max-height: 750px;
+            overflow: hidden;
+            margin-top: var(--header-height);
+        }
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+        }
+        .slider-slide {
+            flex: 0 0 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-slide .slide-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+        .slider-slide .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.35) 0%,
+                    rgba(0, 0, 0, 0.5) 40%,
+                    rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+        .slider-slide .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            padding: var(--spacing-2xl);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .slider-slide .slide-content .slide-tag {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            background-color: rgba(201, 160, 80, 0.15);
+            border: 1px solid rgba(201, 160, 80, 0.4);
+            padding: 0.4rem 1.2rem;
+            border-radius: 2rem;
+            margin-bottom: var(--spacing-lg);
+        }
+        .slider-slide .slide-content h2 {
+            font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .slider-slide .slide-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            margin-bottom: var(--spacing-xl);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-slider {
+            padding: 0.95rem 2.5rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .btn-slider:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        .btn-slider-outline {
+            background-color: transparent;
+            border-color: var(--white);
+            color: var(--white);
+            margin-left: var(--spacing-md);
+        }
+        .btn-slider-outline:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        /* Slider Navigation Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+        }
+        .slider-dots button {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-full);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            background: transparent;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            padding: 0;
+        }
+        .slider-dots button.active {
+            background-color: var(--white);
+            border-color: var(--white);
+            transform: scale(1.25);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+        .slider-dots button:hover {
+            border-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* Slider Arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            background: rgba(0, 0, 0, 0.35);
+            color: var(--white);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .slider-arrow:hover {
+            background: rgba(0, 0, 0, 0.6);
+            border-color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+        .slider-arrow.prev {
+            left: 24px;
+        }
+        .slider-arrow.next {
+            right: 24px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== WHAT'S NEW SECTION ========== */
+        .whats-new {
+            background-color: var(--white);
+        }
+        .whats-new .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+        .whats-new-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .whats-new-image-wrapper img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        .whats-new-image-wrapper .image-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        .whats-new-content .section-label {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            padding-left: 2rem;
+        }
+        .whats-new-content .section-label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 2px;
+            background-color: var(--primary);
+            border-radius: 1px;
+        }
+        .whats-new-content h2 {
+            margin-bottom: var(--spacing-md);
+        }
+        .whats-new-content .description {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xl);
+        }
+        .whats-new-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        .whats-new-features .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        .whats-new-features .feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background-color: var(--bg-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .btn-outline {
+            padding: 0.85rem 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        /* ========== TABLE BOOKING SECTION ========== */
+        .booking-section {
+            background-color: var(--bg-cream);
+            position: relative;
+            overflow: hidden;
+        }
+        .booking-section::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        .booking-section .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-2xl);
+        }
+        .booking-section .section-header .section-label {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        .booking-section .section-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+        .booking-section .section-header p {
+            color: var(--text-muted);
+        }
+
+        .booking-card {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            padding: var(--spacing-2xl);
+            max-width: 750px;
+            margin: 0 auto;
+            border: 1px solid var(--border-light);
+        }
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+        .booking-form .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        .booking-form .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .booking-form label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            letter-spacing: 0.02em;
+        }
+        .booking-form label .required-star {
+            color: var(--primary);
+        }
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background-color: var(--bg-warm);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .booking-form input:focus,
+        .booking-form select:focus,
+        .booking-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(184, 65, 58, 0.08);
+            background-color: var(--white);
+        }
+        .booking-form select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232C1A12' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 12px;
+            padding-right: 2.5rem;
+            cursor: pointer;
+        }
+        .booking-form textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+        .btn-submit {
+            grid-column: 1 / -1;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: var(--spacing-sm);
+        }
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        /* ========== LARGE FOOTER ========== */
+        .main-footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light-muted);
+            padding-top: var(--spacing-3xl);
+            padding-bottom: var(--spacing-2xl);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: var(--spacing-2xl);
+        }
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 1.15rem;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+        }
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 32px;
+            height: 2px;
+            background-color: var(--secondary);
+            border-radius: 1px;
+        }
+        .footer-col p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-light-muted);
+        }
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            display: inline-block;
+        }
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-full);
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-light-muted);
+            transition: all var(--transition-fast);
+            font-size: 0.9rem;
+        }
+        .footer-social a:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .footer-col ul li {
+            margin-bottom: var(--spacing-sm);
+        }
+        .footer-col ul li a {
+            color: var(--text-light-muted);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+            display: inline-block;
+            padding: 2px 0;
+        }
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 6px;
+        }
+        .footer-hours li {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+        }
+        .footer-hours li span.day {
+            color: var(--text-light-muted);
+        }
+        .footer-hours li span.time {
+            color: var(--white);
+            font-weight: 500;
+        }
+        .footer-contact-item {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+            align-items: flex-start;
+        }
+        .footer-contact-item .contact-icon {
+            flex-shrink: 0;
+            width: 20px;
+            text-align: center;
+            color: var(--secondary);
+            margin-top: 2px;
+        }
+        .footer-newsletter {
+            margin-top: var(--spacing-md);
+        }
+        .footer-newsletter .newsletter-form {
+            display: flex;
+            gap: 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+        .footer-newsletter input {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            border: none;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .footer-newsletter input::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+        .footer-newsletter button {
+            padding: 0.7rem 1.4rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: background-color var(--transition-fast);
+            white-space: nowrap;
+        }
+        .footer-newsletter button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* ========== COPYRIGHT FOOTER ========== */
+        .copyright-bar {
+            background-color: var(--bg-darker);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .copyright-bar .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        .copyright-bar p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-light-muted);
+        }
+        .copyright-bar .footer-bottom-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+        .copyright-bar .footer-bottom-links a {
+            font-size: 0.85rem;
+            color: var(--text-light-muted);
+            font-weight: 400;
+            transition: color var(--transition-fast);
+        }
+        .copyright-bar .footer-bottom-links a:hover {
+            color: var(--white);
+        }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+            }
+            .whats-new .container {
+                gap: var(--spacing-xl);
+            }
+            .whats-new-image-wrapper img {
+                height: 340px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 64px;
+            }
+
+            /* Mobile Navigation */
+            .main-nav {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .mobile-nav-panel {
+                display: block;
+            }
+
+            /* Slider */
+            .hero-slider {
+                height: 70vh;
+                min-height: 420px;
+                max-height: 600px;
+            }
+            .slider-slide .slide-content {
+                padding: var(--spacing-lg);
+            }
+            .slider-slide .slide-content h2 {
+                font-size: 1.8rem;
+            }
+            .slider-slide .slide-content p {
+                font-size: 0.95rem;
+            }
+            .slider-arrow {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+            .slider-arrow.prev {
+                left: 10px;
+            }
+            .slider-arrow.next {
+                right: 10px;
+            }
+            .btn-slider-outline {
+                margin-left: var(--spacing-sm);
+            }
+            .btn-slider {
+                padding: 0.75rem 1.6rem;
+                font-size: 0.85rem;
+            }
+
+            /* What's New */
+            .whats-new .container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+            .whats-new-image-wrapper img {
+                height: 280px;
+            }
+            .whats-new-content {
+                text-align: center;
+            }
+            .whats-new-content .section-label {
+                padding-left: 0;
+            }
+            .whats-new-content .section-label::before {
+                display: none;
+            }
+            .whats-new-features {
+                justify-content: center;
+            }
+
+            /* Booking Form */
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            .booking-card {
+                padding: var(--spacing-lg);
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            .footer-col h3::after {
+                width: 24px;
+            }
+
+            /* Copyright */
+            .copyright-bar .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .copyright-bar .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-slider {
+                height: 55vh;
+                min-height: 350px;
+            }
+            .slider-slide .slide-content h2 {
+                font-size: 1.5rem;
+            }
+            .slider-slide .slide-content .slide-tag {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.9rem;
+            }
+            .slider-dots {
+                bottom: 24px;
+            }
+            .slider-dots button {
+                width: 10px;
+                height: 10px;
+            }
+            .whats-new-image-wrapper img {
+                height: 220px;
+            }
+            .booking-card {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="header-inner">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#" aria-label="Savory & Sage Restaurant Homepage">
+                    <span class="logo-icon" aria-hidden="true">🍽</span>
+                    Savory & Sage
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#whats-new">What's New</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#book" class="btn-header">Book a Table</a>
+            </nav>
+
+            <!-- Hamburger (Mobile) -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        <nav class="mobile-nav-panel" id="mobileNavPanel" aria-label="Mobile Navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#whats-new">What's New</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#book" class="btn-header">Book a Table</a>
+        </nav>
+    </header>
+
+    <!-- ==================== HERO SLIDER ==================== -->
+    <section class="hero-slider" id="home" aria-label="Featured Slider">
+        <div class="slider-track" id="sliderTrack">
+            <!-- Slide 1 -->
+            <div class="slider-slide" data-index="0">
+                <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&h=700&fit=crop&q=80'); background-color: #3D2C2A;"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <span class="slide-tag">Award Winning</span>
+                    <h2>Exceptional Fine Dining</h2>
+                    <p>Experience culinary artistry crafted with the finest seasonal ingredients in an intimate, elegant setting.</p>
+                    <a href="#book" class="btn btn-slider">Reserve a Table</a>
+                    <a href="#menu" class="btn btn-slider btn-slider-outline">View Menu</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="slider-slide" data-index="1">
+                <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&h=700&fit=crop&q=80'); background-color: #2A1E1A;"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <span class="slide-tag">New Season</span>
+                    <h2>Autumn Tasting Menu</h2>
+                    <p>Discover our chef's latest seven-course journey celebrating the rich flavors of the harvest season.</p>
+                    <a href="#whats-new" class="btn btn-slider">Explore Now</a>
+                    <a href="#book" class="btn btn-slider btn-slider-outline">Book a Table</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slider-slide" data-index="2">
+                <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1474722883778-792e7990302f?w=1400&h=700&fit=crop&q=80'); background-color: #1C1815;"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <span class="slide-tag">Wine & Dine</span>
+                    <h2>Curated Wine Pairings</h2>
+                    <p>Explore our extensive cellar with over 200 labels, perfectly paired to elevate every course of your meal.</p>
+                    <a href="#book" class="btn btn-slider">Reserve Now</a>
+                    <a href="#menu" class="btn btn-slider btn-slider-outline">Wine List</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots" id="sliderDots" aria-label="Slider Navigation">
+            <button class="active" data-slide="0" aria-label="Slide 1"></button>
+            <button data-slide="1" aria-label="Slide 2"></button>
+            <button data-slide="2" aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Slider Arrows -->
+        <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous slide">&#10094;</button>
+        <button class="slider-arrow next" id="sliderNext" aria-label="Next slide">&#10095;</button>
+    </section>
+
+    <!-- ==================== WHAT'S NEW SECTION ==================== -->
+    <section class="whats-new section-padding" id="whats-new" aria-labelledby="whatsNewHeading">
+        <div class="container">
+            <!-- Image -->
+            <div class="whats-new-image-wrapper">
+                <span class="image-badge">New Season</span>
+                <img
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=420&fit=crop&q=80"
+                alt="Fresh autumn salad with roasted vegetables and microgreens on artisan ceramic plate"
+                loading="lazy"
+                style="background-color: #E8DED1;"
+                >
+            </div>
+            <!-- Content -->
+            <div class="whats-new-content">
+                <span class="section-label">What's New</span>
+                <h2 id="whatsNewHeading">Introducing Our Autumn Harvest Menu</h2>
+                <p class="description">
+                    As the leaves turn, our kitchen embraces the warmth of the season. Chef Marco Valenti has
+                    crafted a brand-new menu featuring locally sourced root vegetables, wild mushrooms, heritage
+                    grains, and slow-braised meats — each dish telling a story of comfort and sophistication.
+                </p>
+                <div class="whats-new-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🥬</span> Farm-to-Table Fresh
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🍷</span> Optional Wine Pairing
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌿</span> Vegetarian Tasting Available
+                    </div>
+                </div>
+                <button class="btn-outline" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+                    Book Your Experience
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TABLE BOOKING SECTION ==================== -->
+    <section class="booking-section section-padding" id="book" aria-labelledby="bookingHeading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Reservations</span>
+                <h2 id="bookingHeading">Book Your Table</h2>
+                <p>Secure your dining experience. We look forward to welcoming you.</p>
+            </div>
+            <div class="booking-card">
+                <form class="booking-form" id="bookingForm" novalidate>
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="bookingName">Full Name <span class="required-star">*</span></label>
+                        <input type="text" id="bookingName" name="name" placeholder="John Doe" required autocomplete="name">
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="bookingEmail">Email Address <span class="required-star">*</span></label>
+                        <input type="email" id="bookingEmail" name="email" placeholder="john@example.com" required autocomplete="email">
+                    </div>
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="bookingPhone">Phone Number <span class="required-star">*</span></label>
+                        <input type="tel" id="bookingPhone" name="phone" placeholder="+1 (555) 000-0000" required autocomplete="tel">
+                    </div>
+                    <!-- Party Size -->
+                    <div class="form-group">
+                        <label for="bookingParty">Party Size <span class="required-star">*</span></label>
+                        <select id="bookingParty" name="party" required>
+                            <option value="" disabled selected>Select guests</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                            <option value="7">7 Guests</option>
+                            <option value="8">8+ Guests</option>
+                        </select>
+                    </div>
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label for="bookingDate">Date <span class="required-star">*</span></label>
+                        <input type="date" id="bookingDate" name="date" required>
+                    </div>
+                    <!-- Time -->
+                    <div class="form-group">
+                        <label for="bookingTime">Time <span class="required-star">*</span></label>
+                        <select id="bookingTime" name="time" required>
+                            <option value="" disabled selected>Select time</option>
+                            <option value="17:00">5:00 PM</option>
+                            <option value="17:30">5:30 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="18:30">6:30 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="19:30">7:30 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                            <option value="20:30">8:30 PM</option>
+                            <option value="21:00">9:00 PM</option>
+                        </select>
+                    </div>
+                    <!-- Special Requests -->
+                    <div class="form-group full-width">
+                        <label for="bookingNotes">Special Requests</label>
+                        <textarea id="bookingNotes" name="notes" placeholder="Allergies, dietary needs, special occasions, seating preferences..."></textarea>
+                    </div>
+                    <!-- Submit -->
+                    <button type="submit" class="btn-submit">Confirm Reservation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LARGE FOOTER ==================== -->
+    <footer class="main-footer" aria-labelledby="footerHeading">
+        <div class="container">
+            <h2 id="footerHeading" class="sr-only">Footer Information</h2>
+            <div class="footer-grid">
+                <!-- Column 1: About -->
+                <div class="footer-col">
+                    <span class="footer-logo">Savory & Sage</span>
+                    <p>
+                        A modern fine dining destination where passion meets plate. We source the finest
+                        ingredients to create unforgettable culinary moments in the heart of the city.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="TripAdvisor">★</a>
+                    </div>
+                </div>
+                <!-- Column 2: Opening Hours -->
+                <div class="footer-col">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-hours">
+                        <li><span class="day">Monday - Thursday</span><span class="time">5 PM – 10 PM</span></li>
+                        <li><span class="day">Friday</span><span class="time">5 PM – 11 PM</span></li>
+                        <li><span class="day">Saturday</span><span class="time">12 PM – 11 PM</span></li>
+                        <li><span class="day">Sunday</span><span class="time">12 PM – 9 PM</span></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Quick Links -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#whats-new">What's New</a></li>
+                        <li><a href="#book">Reservations</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Private Events</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Contact & Newsletter -->
+                <div class="footer-col">
+                    <h3>Get in Touch</h3>
+                    <div class="footer-contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>127 Gastronomy Lane,<br>Downtown, NY 10001</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+1 (212) 555-0192</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="contact-icon">✉</span>
+                        <span>hello@savoryandsage.com</span>
+                    </div>
+                    <div class="footer-newsletter">
+                        <p style="font-size:0.85rem; margin-bottom:0.5rem;">Subscribe for updates &amp; offers:</p>
+                        <form class="newsletter-form" id="newsletterForm" novalidate>
+                            <input type="email" placeholder="Your email" required aria-label="Newsletter email">
+                            <button type="submit">Join</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== COPYRIGHT BAR ==================== -->
+    <div class="copyright-bar" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 <strong>Savory & Sage Restaurant</strong>. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        (function() {
+            // ========== MOBILE MENU ==========
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileNavPanel = document.getElementById('mobileNavPanel');
+            const body = document.body;
+            let menuOpen = false;
+
+            function openMenu() {
+                menuOpen = true;
+                hamburgerBtn.classList.add('active');
+                mobileNavPanel.classList.add('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'true');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                menuOpen = false;
+                hamburgerBtn.classList.remove('active');
+                mobileNavPanel.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                body.style.overflow = '';
+            }
+
+            hamburgerBtn.addEventListener('click', function() {
+                if (menuOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            // Close menu when a mobile nav link is clicked
+            const mobileLinks = mobileNavPanel.querySelectorAll('a');
+            mobileLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+
+            // Close menu on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menuOpen) {
+                    closeMenu();
+                    hamburgerBtn.focus();
+                }
+            });
+
+            // ========== HEADER SCROLL SHADOW ==========
+            const siteHeader = document.getElementById('siteHeader');
+            let scrollTicking = false;
+
+            function updateHeaderShadow() {
+                if (window.scrollY > 20) {
+                    siteHeader.classList.add('scrolled');
+                } else {
+                    siteHeader.classList.remove('scrolled');
+                }
+                scrollTicking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!scrollTicking) {
+                    requestAnimationFrame(updateHeaderShadow);
+                    scrollTicking = true;
+                }
+            });
+
+            // ========== HERO SLIDER ==========
+            const sliderTrack = document.getElementById('sliderTrack');
+            const sliderDots = document.getElementById('sliderDots');
+            const dots = sliderDots.querySelectorAll('button');
+            const prevBtn = document.getElementById('sliderPrev');
+            const nextBtn = document.getElementById('sliderNext');
+            const totalSlides = dots.length;
+            let currentSlide = 0;
+            let slideInterval;
+            let isTransitioning = false;
+
+            function goToSlide(index) {
+                if (isTransitioning || index === currentSlide) return;
+                if (index < 0 || index >= totalSlides) return;
+
+                isTransitioning = true;
+                currentSlide = index;
+
+                // Move track
+                sliderTrack.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+
+                // Update dots
+                dots.forEach(function(dot, i) {
+                    dot.classList.toggle('active', i === currentSlide);
+                });
+
+                // Reset transitioning flag after animation completes
+                setTimeout(function() {
+                    isTransitioning = false;
+                }, 700); // matches CSS transition duration
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % totalSlides;
+                goToSlide(next);
+            }
+
+            function prevSlide() {
+                const prev = (currentSlide - 1 + totalSlides) % totalSlides;
+                goToSlide(prev);
+            }
+
+            // Dot click handlers
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    goToSlide(slideIndex);
+                    resetAutoSlide();
+                });
+            });
+
+            // Arrow click handlers
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                resetAutoSlide();
+            });
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                // Only if slider is in viewport
+                const slider = document.querySelector('.hero-slider');
+                const rect = slider.getBoundingClientRect();
+                if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    resetAutoSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    resetAutoSlide();
+                }
+            });
+
+            // Auto-slide
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(slideInterval);
+                startAutoSlide();
+            }
+
+            // Pause on hover
+            const heroSlider = document.querySelector('.hero-slider');
+            heroSlider.addEventListener('mouseenter', function() {
+                clearInterval(slideInterval);
+            });
+            heroSlider.addEventListener('mouseleave', function() {
+                startAutoSlide();
+            });
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            heroSlider.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            heroSlider.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    resetAutoSlide();
+                }
+            });
+
+            // Initialize slider
+            goToSlide(0);
+            startAutoSlide();
+
+            // ========== BOOKING FORM HANDLING ==========
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Basic validation
+                const requiredFields = bookingForm.querySelectorAll('[required]');
+                let allValid = true;
+                requiredFields.forEach(function(field) {
+                    if (!field.value.trim()) {
+                        allValid = false;
+                        field.style.borderColor = '#B8413A';
+                        field.style.boxShadow = '0 0 0 4px rgba(184,65,58,0.12)';
+                        // Reset after a moment
+                        setTimeout(function() {
+                            field.style.borderColor = '#E2D5C7';
+                            field.style.boxShadow = 'none';
+                        }, 2000);
+                    }
+                });
+
+                if (!allValid) {
+                    // Scroll to first invalid field
+                    const firstInvalid = bookingForm.querySelector(
+                        '[required]:invalid, [required][style*="border-color: rgb(184, 65, 58)"]');
+                    if (firstInvalid) {
+                        firstInvalid.focus();
+                    }
+                    return;
+                }
+
+                // Simulate submission
+                const submitBtn = bookingForm.querySelector('.btn-submit');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Reserving...';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+                submitBtn.style.cursor = 'not-allowed';
+
+                setTimeout(function() {
+                    submitBtn.textContent = '✓ Reserved!';
+                    submitBtn.style.backgroundColor = '#2D8A4E';
+                    submitBtn.style.borderColor = '#2D8A4E';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'default';
+
+                    // Reset after 3 seconds
+                    setTimeout(function() {
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.backgroundColor = '';
+                        submitBtn.style.borderColor = '';
+                        submitBtn.disabled = false;
+                        submitBtn.style.cursor = 'pointer';
+                        bookingForm.reset();
+                    }, 3000);
+                }, 1500);
+            });
+
+            // ========== NEWSLETTER FORM ==========
+            const newsletterForm = document.getElementById('newsletterForm');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = newsletterForm.querySelector('input');
+                if (emailInput.value.trim()) {
+                    const btn = newsletterForm.querySelector('button');
+                    const originalText = btn.textContent;
+                    btn.textContent = '✓';
+                    btn.style.backgroundColor = '#2D8A4E';
+                    setTimeout(function() {
+                        btn.textContent = originalText;
+                        btn.style.backgroundColor = '';
+                        emailInput.value = '';
+                    }, 2500);
+                }
+            });
+
+            // ========== SMOOTH SCROLL FOR ALL ANCHOR LINKS ==========
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerOffset = parseInt(
+                            getComputedStyle(document.documentElement).getPropertyValue(
+                                '--header-height')) || 72;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 10;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            console.log('🍽  Savory & Sage — Restaurant website ready.');
+            console.log('   Base CSS + Theme CSS architecture loaded.');
+            console.log('   Change variables in base.css to rebrand the entire site.');
+        })();
+    </script>
+</body>
+</html>

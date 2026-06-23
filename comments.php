@@ -1,49 +1,33 @@
 <?php
-if ( post_password_required() ) {
-    return;
-}
+if ( post_password_required() ) return;
 ?>
 
 <div id="comments" class="comments-area">
+
     <?php if ( have_comments() ) : ?>
+
     <h2 class="comments-title">
-        <?php
-            $comment_count = get_comments_number();
-            if ( '1' === $comment_count ) {
-                esc_html_e( 'One Comment', 'obydullah-restaurant' );
-            } else {
-                printf(
-                    esc_html( _nx( '%s Comment', '%s Comments', $comment_count, 'comments title', 'obydullah-restaurant' ) ),
-                    number_format_i18n( $comment_count )
-                );
-            }
-            ?>
+        <?php comments_number(); ?>
     </h2>
 
     <ol class="comment-list">
         <?php
-            wp_list_comments( array(
-                'style'       => 'ol',
-                'short_ping'  => true,
-                'avatar_size' => 50,
-            ) );
+            wp_list_comments([
+                'style' => 'ol',
+                'short_ping' => true,
+            ]);
             ?>
     </ol>
 
     <?php
-        the_comments_pagination( array(
-            'prev_text' => __( '&laquo; Previous', 'obydullah-restaurant' ),
-            'next_text' => __( 'Next &raquo;', 'obydullah-restaurant' ),
-        ) );
+        the_comments_pagination([
+            'prev_text' => 'Previous',
+            'next_text' => 'Next',
+        ]);
         ?>
 
-    <?php endif; ?>
-
-    <?php
-    if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-        ?>
-    <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'obydullah-restaurant' ); ?></p>
     <?php endif; ?>
 
     <?php comment_form(); ?>
+
 </div>

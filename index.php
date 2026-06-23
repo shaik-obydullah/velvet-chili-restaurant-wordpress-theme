@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="primary" class="site-main blog-index">
+<main class="site-main blog-index">
     <div class="container">
 
         <?php if ( have_posts() ) : ?>

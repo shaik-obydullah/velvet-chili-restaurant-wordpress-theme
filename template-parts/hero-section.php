@@ -1,5 +1,18 @@
 <?php
-if ( defined( 'OBIRC_VERSION' ) ) {
+/**
+ * Hero Section (Plugin-aware)
+ * Displays dynamic Hero Slides if plugin active & CPT has posts.
+ * Otherwise shows a static fallback.
+ */
+
+$fallback_image = get_template_directory_uri() . '/assets/images/hero.jpg';
+
+// Check if plugin is active and CPT exists
+$has_plugin = defined( 'OBIRC_VERSION' );
+$has_cpt    = post_type_exists( 'obirc_hero_slide' );
+
+// Only run query if plugin and CPT are available
+if ( $has_plugin && $has_cpt ) {
     $args = [
         'post_type'      => 'obirc_hero_slide',
         'posts_per_page' => -1,
@@ -7,19 +20,25 @@ if ( defined( 'OBIRC_VERSION' ) ) {
         'order'          => 'ASC'
     ];
     $query = new WP_Query( $args );
+    $has_slides = $query->have_posts();
+} else {
+    $has_slides = false;
+}
 
-    if ( $query->have_posts() ) :
+if ( $has_plugin && $has_cpt && $has_slides ) :
 ?>
 
 <section class="slider" id="featuredSlider" aria-roledescription="carousel" aria-label="Featured dishes">
+
     <div class="slider__slides" id="sliderSlides">
+
         <?php
         $total = $query->post_count;
         $i = 0;
         while ( $query->have_posts() ) : $query->the_post();
             $image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
             if ( ! $image ) {
-                $image = get_template_directory_uri() . '/assets/images/obirc-hero.jpg';
+                $image = $fallback_image;
             }
             $active_class = ( $i === 0 ) ? 'slider__slide--active' : '';
         ?>
@@ -32,7 +51,7 @@ if ( defined( 'OBIRC_VERSION' ) ) {
                 <h2 class="slider__title"><?php echo esc_html( get_the_title() ); ?></h2>
                 <p class="slider__subtitle">
                     <?php
-                        $subtitle = get_post_meta( get_the_ID(), 'obirc_subtitle', true );
+                        $subtitle = get_post_meta( get_the_ID(), '_vcrc_subtitle', true );
                         echo esc_html( $subtitle );
                     ?>
                 </p>
@@ -57,8 +76,21 @@ if ( defined( 'OBIRC_VERSION' ) ) {
             aria-label="<?php echo esc_attr( sprintf( 'Go to slide %d', $d + 1 ) ); ?>"></button>
         <?php endfor; ?>
     </div>
+
 </section>
+
 <?php
-        wp_reset_postdata();
-    endif;
-}
+    wp_reset_postdata();
+else :
+?>
+
+<section class="slider-static" aria-label="Signature dish">
+    <div class="slider-static__bg" style="background-image: url('<?php echo esc_url( $fallback_image ); ?>');"></div>
+    <div class="slider-static__overlay"></div>
+    <div class="slider-static__content">
+        <h2 class="slider-static__title"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h2>
+        <p class="slider-static__subtitle"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
+    </div>
+</section>
+
+<?php endif; ?>

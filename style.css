@@ -2,7 +2,7 @@
 Theme Name: Obydullah Restaurant
 Theme URI: https://obydullah.com/project/obydullah-restaurant-wordpress-theme
 Description: A modern WordPress theme designed for restaurants, cafés, and culinary businesses. Built with performance, flexibility, and clean design in mind.
-Version: 1.0.3
+Version: 1.0.2
 Author: Shaik Obydullah
 Author URI: https://obydullah.com
 Tags: custom-colors, food-and-drink, one-column, custom-menu, featured-images, translation-ready
@@ -17,3 +17,238 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Copyright (C) 2026 Shaik Obydullah
 This theme is licensed under the GPL v2.0 or later.
 */
+
+.wp-caption {
+}
+.wp-caption-text {
+}
+.sticky {
+}
+.gallery-caption {
+}
+.bypostauthor {
+}
+.alignright {
+  float: right;
+}
+.alignleft {
+  float: left;
+}
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+.screen-reader-text {
+  position: absolute;
+  left: -9999px;
+}
+
+/* ---------- Comments & Post Navigation ---------- */
+
+/* Comments area wrapper */
+.comments-area {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border, #e2d5c7);
+}
+
+.comments-title,
+.comment-reply-title {
+  font-family: var(--font-heading, "Playfair Display", serif);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-soft-black, #1a1a1a);
+}
+
+.comment-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.comment {
+  margin-bottom: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment-author .avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: auto;
+}
+
+.comment-author .fn {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-soft-black);
+}
+
+.comment-metadata {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary, #555);
+  margin-bottom: 0.75rem;
+}
+
+.comment-content p {
+  margin-bottom: 0.5rem;
+}
+
+.reply {
+  margin-top: 0.5rem;
+}
+
+.comment-reply-link {
+  font-size: 0.85rem;
+  color: var(--color-chili-red, #b91c1c);
+  text-decoration: none;
+}
+
+.comment-reply-link:hover {
+  text-decoration: underline;
+}
+
+/* Comment form */
+.comment-respond {
+  margin-top: 2rem;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url,
+.comment-form-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: var(--color-soft-black);
+}
+
+.comment-form input,
+.comment-form textarea {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border, #ccc);
+  border-radius: 4px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 0.95rem;
+  background-color: #fff;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: var(--color-chili-red);
+  outline: none;
+}
+
+.form-submit {
+  margin-top: 1rem;
+}
+
+.submit {
+  background-color: var(--color-chili-red);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit:hover {
+  background-color: var(--color-obydullah_restaurant-burgundy, #7f1a1a);
+}
+
+/* Post navigation (prev/next) */
+.post-navigation {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.post-navigation .nav-previous,
+.post-navigation .nav-next {
+  flex: 1;
+}
+
+.post-navigation a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-cream, #f9f1e7);
+  border-radius: 4px;
+  color: var(--color-soft-black);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.post-navigation a:hover {
+  background-color: var(--color-chili-red);
+  color: white;
+}
+
+/* Post tags */
+.post-tags {
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-tags a {
+  background-color: var(--color-cream, #f9f1e7);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--color-soft-black);
+}
+
+.post-tags a:hover {
+  background-color: var(--color-chili-red);
+  color: white;
+}
+
+/* Page links (for multipage posts) */
+.page-links {
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comment {
+    padding: 1rem;
+  }
+  .post-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+  .post-navigation .nav-previous,
+  .post-navigation .nav-next {
+    width: 100%;
+    text-align: center;
+  }
+}
