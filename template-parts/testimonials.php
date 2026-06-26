@@ -21,14 +21,14 @@ function obirc_default_testimonials_html() {
                         <i class="fa-solid fa-quote-right"></i>
                     </div>
                     <h2 class="testimonials-box__title">
-                        <?php esc_html_e( 'What Our Customers Say', 'obydullah-restaurant' ); ?></h2>
+                        <?php esc_html_e( 'What Our Customers Say', 'velvet-chili-restaurant' ); ?></h2>
                     <div class="testimonial-carousel" id="testimonialCarousel">
                         <div class="testimonial-carousel__slides" id="testimonialSlides">
                             <!-- Slide 1 -->
                             <div class="testimonial-carousel__slide testimonial-carousel__slide--active">
                                 <blockquote class="testimonial-carousel__quote">“The ancho ribeye was life‑changing.
-                                    Perfect heat, incredible depth – I’ve never tasted anything like it. Obydullah
-                                    Restaurant is a gem.”</blockquote>
+                                    Perfect heat, incredible depth – I’ve never tasted anything like it. Velvet
+                                    Chili Restaurant is a gem.”</blockquote>
                                 <div class="testimonial-carousel__author"><span class="testimonial-carousel__name">James
                                         Delacroix</span><span class="testimonial-carousel__role">— Food Critic</span>
                                 </div>
@@ -97,7 +97,7 @@ $area_title = get_the_title( $area_id );
 $area_image = get_the_post_thumbnail_url( $area_id, 'full' );
 
 // Fallback values if fields are empty
-$area_title = $area_title ?: __( 'What Our Customers Say', 'obydullah-restaurant' );
+$area_title = $area_title ?: __( 'What Our Customers Say', 'velvet-chili-restaurant' );
 $area_image = $area_image ?: get_template_directory_uri() . '/assets/images/testimonial.jpg';
 
 // 2. Get individual testimonials (CPT: obirc_testimonial)

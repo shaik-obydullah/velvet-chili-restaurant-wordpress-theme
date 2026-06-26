@@ -42,10 +42,10 @@ if ( empty( $hours ) ) {
     $hours = obirc_reservation_fallback_hours();
 }
 if ( empty( $title ) ) {
-    $title = __( 'Opening Hours', 'obydullah-restaurant' );
+    $title = __( 'Opening Hours', 'velvet-chili-restaurant' );
 }
 if ( empty( $note ) ) {
-    $note = __( 'Last reservation 30 minutes before closing', 'obydullah-restaurant' );
+    $note = __( 'Last reservation 30 minutes before closing', 'velvet-chili-restaurant' );
 }
 ?>
 <section class="reservation" id="reservation">

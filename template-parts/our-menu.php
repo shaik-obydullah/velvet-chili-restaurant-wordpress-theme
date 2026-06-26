@@ -79,7 +79,7 @@ if ( ! $has_items ) {
         <!-- Section header (dynamic from Menu Area) -->
         <div class="featured-menu__header text-center">
             <span
-                class="featured-menu__kicker"><?php esc_html_e( 'From Our Kitchen', 'obydullah-restaurant' ); ?></span>
+                class="featured-menu__kicker"><?php esc_html_e( 'From Our Kitchen', 'velvet-chili-restaurant' ); ?></span>
             <h2 class="featured-menu__title"><?php echo esc_html( $title ); ?></h2>
             <p class="featured-menu__subtitle"><?php echo esc_html( $subtitle ); ?></p>
         </div>
@@ -139,11 +139,11 @@ if ( ! $has_items ) {
                     endforeach;
 
                     if ( $item_count === 0 ) {
-                        echo '<p>' . esc_html__( 'No menu items found.', 'obydullah-restaurant' ) . '</p>';
+                        echo '<p>' . esc_html__( 'No menu items found.', 'velvet-chili-restaurant' ) . '</p>';
                     }
                 ?>
                 <a href="/menu"
-                    class="btn btn--primary featured-menu__cta"><?php esc_html_e( 'View Full Menu', 'obydullah-restaurant' ); ?></a>
+                    class="btn btn--primary featured-menu__cta"><?php esc_html_e( 'View Full Menu', 'velvet-chili-restaurant' ); ?></a>
             </div>
         </div>
     </div>
@@ -159,11 +159,11 @@ function obirc_static_featured_menu() {
     <div class="featured-menu__container">
         <div class="featured-menu__header text-center">
             <span
-                class="featured-menu__kicker"><?php esc_html_e( 'From Our Kitchen', 'obydullah-restaurant' ); ?></span>
+                class="featured-menu__kicker"><?php esc_html_e( 'From Our Kitchen', 'velvet-chili-restaurant' ); ?></span>
             <h2 class="featured-menu__title">
-                <?php esc_html_e( 'Obydullah Restaurant Signatures', 'obydullah-restaurant' ); ?></h2>
+                <?php esc_html_e( 'Velvet Chili Signatures', 'velvet-chili-restaurant' ); ?></h2>
             <p class="featured-menu__subtitle">
-                <?php esc_html_e( 'Every dish is a story of fire, spice, and slow‑crafted comfort.', 'obydullah-restaurant' ); ?>
+                <?php esc_html_e( 'Every dish is a story of fire, spice, and slow‑crafted comfort.', 'velvet-chili-restaurant' ); ?>
             </p>
         </div>
         <div class="featured-menu__row">
@@ -174,52 +174,52 @@ function obirc_static_featured_menu() {
                 </div>
             </div>
             <div class="featured-menu__list-col">
-                <h3 class="featured-menu__list-title"><?php esc_html_e( 'Starters & Mains', 'obydullah-restaurant' ); ?>
+                <h3 class="featured-menu__list-title"><?php esc_html_e( 'Starters & Mains', 'velvet-chili-restaurant' ); ?>
                 </h3>
                 <ul class="featured-menu__items">
                     <li class="featured-menu__item">
                         <div class="featured-menu__item-header">
                             <h4 class="featured-menu__item-name">
-                                <?php esc_html_e( 'Smoked Ancho Ribeye', 'obydullah-restaurant' ); ?></h4>
+                                <?php esc_html_e( 'Smoked Ancho Ribeye', 'velvet-chili-restaurant' ); ?></h4>
                             <span class="featured-menu__item-price">$48</span>
                         </div>
                         <p class="featured-menu__item-desc">
-                            <?php esc_html_e( '12‑hour chili‑cocoa rub, roasted bone marrow butter, grilled asparagus.', 'obydullah-restaurant' ); ?>
+                            <?php esc_html_e( '12‑hour chili‑cocoa rub, roasted bone marrow butter, grilled asparagus.', 'velvet-chili-restaurant' ); ?>
                         </p>
                     </li>
                     <li class="featured-menu__item">
                         <div class="featured-menu__item-header">
                             <h4 class="featured-menu__item-name">
-                                <?php esc_html_e( 'Velvet Braised Short Rib', 'obydullah-restaurant' ); ?></h4>
+                                <?php esc_html_e( 'Velvet Braised Short Rib', 'velvet-chili-restaurant' ); ?></h4>
                             <span class="featured-menu__item-price">$52</span>
                         </div>
                         <p class="featured-menu__item-desc">
-                            <?php esc_html_e( 'Guajillo & pasilla braise, creamy polenta, pickled red onion.', 'obydullah-restaurant' ); ?>
+                            <?php esc_html_e( 'Guajillo & pasilla braise, creamy polenta, pickled red onion.', 'velvet-chili-restaurant' ); ?>
                         </p>
                     </li>
                     <li class="featured-menu__item">
                         <div class="featured-menu__item-header">
                             <h4 class="featured-menu__item-name">
-                                <?php esc_html_e( 'Fire‑Roasted Poblano Relleno', 'obydullah-restaurant' ); ?></h4>
+                                <?php esc_html_e( 'Fire‑Roasted Poblano Relleno', 'velvet-chili-restaurant' ); ?></h4>
                             <span class="featured-menu__item-price">$38</span>
                         </div>
                         <p class="featured-menu__item-desc">
-                            <?php esc_html_e( 'Oaxaca cheese, smoky tomato salsa, cilantro lime crema.', 'obydullah-restaurant' ); ?>
+                            <?php esc_html_e( 'Oaxaca cheese, smoky tomato salsa, cilantro lime crema.', 'velvet-chili-restaurant' ); ?>
                         </p>
                     </li>
                     <li class="featured-menu__item">
                         <div class="featured-menu__item-header">
                             <h4 class="featured-menu__item-name">
-                                <?php esc_html_e( 'Chili Chocolate Tart', 'obydullah-restaurant' ); ?></h4>
+                                <?php esc_html_e( 'Chili Chocolate Tart', 'velvet-chili-restaurant' ); ?></h4>
                             <span class="featured-menu__item-price">$18</span>
                         </div>
                         <p class="featured-menu__item-desc">
-                            <?php esc_html_e( 'Dark ganache with ancho heat, candied orange, vanilla bean ice cream.', 'obydullah-restaurant' ); ?>
+                            <?php esc_html_e( 'Dark ganache with ancho heat, candied orange, vanilla bean ice cream.', 'velvet-chili-restaurant' ); ?>
                         </p>
                     </li>
                 </ul>
                 <a href="/menu"
-                    class="btn btn--primary featured-menu__cta"><?php esc_html_e( 'View Full Menu', 'obydullah-restaurant' ); ?></a>
+                    class="btn btn--primary featured-menu__cta"><?php esc_html_e( 'View Full Menu', 'velvet-chili-restaurant' ); ?></a>
             </div>
         </div>
     </div>

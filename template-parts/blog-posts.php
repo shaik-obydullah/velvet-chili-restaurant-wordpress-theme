@@ -8,7 +8,7 @@
 
 <div class="container blog-index">
     <header class="page-header">
-        <h1 class="page-title"><?php esc_html_e( 'Latest Posts', 'obydullah-restaurant' ); ?></h1>
+        <h1 class="page-title"><?php esc_html_e( 'Latest Posts', 'velvet-chili-restaurant' ); ?></h1>
     </header>
 
     <?php if ( have_posts() ) : ?>
@@ -21,12 +21,12 @@
         <?php
             the_posts_pagination( array(
                 'mid_size'  => 2,
-                'prev_text' => __( '&laquo; Previous', 'obydullah-restaurant' ),
-                'next_text' => __( 'Next &raquo;', 'obydullah-restaurant' ),
+                'prev_text' => __( '&laquo; Previous', 'velvet-chili-restaurant' ),
+                'next_text' => __( 'Next &raquo;', 'velvet-chili-restaurant' ),
             ) );
             ?>
     </div>
     <?php else : ?>
-    <p><?php esc_html_e( 'No posts found.', 'obydullah-restaurant' ); ?></p>
+    <p><?php esc_html_e( 'No posts found.', 'velvet-chili-restaurant' ); ?></p>
     <?php endif; ?>
 </div>

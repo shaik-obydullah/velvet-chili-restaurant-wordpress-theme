@@ -1,5 +1,5 @@
 /**
- * Obydullah Restaurant Theme – Main JavaScript
+ * Velvet Chili Restaurant Theme – Main JavaScript
  * =================================
  * Table of Contents:
  *   1. Mobile Navigation

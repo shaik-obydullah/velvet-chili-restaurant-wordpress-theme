@@ -1,5 +1,5 @@
 /*
- * Obydullah Restaurant Theme – Theme Stylesheet
+ * Velvet Chili Restaurant Theme – Theme Stylesheet
  * ================================
  * Table of Contents:
  *   1. Header / Navbar
@@ -135,7 +135,7 @@
 }
 
 .nav__link--cta:hover {
-  background-color: var(--color-obydullah_restaurant-burgundy);
+  background-color: var(--color-vcr-burgundy);
   transform: translateY(-2px);
 }
 
@@ -250,7 +250,7 @@
 }
 
 .mobile-nav__link--cta:hover {
-  background-color: var(--color-obydullah_restaurant-burgundy);
+  background-color: var(--color-vcr-burgundy);
 }
 
 .mobile-nav__info {
@@ -437,8 +437,8 @@ body.admin-bar .mobile-nav__panel {
 }
 
 .btn--primary:hover {
-  background-color: var(--color-obydullah_restaurant-burgundy);
-  border-color: var(--color-obydullah_restaurant-burgundy);
+  background-color: var(--color-vcr-burgundy);
+  border-color: var(--color-vcr-burgundy);
   transform: translateY(-3px);
 }
 
@@ -971,7 +971,7 @@ body.admin-bar .mobile-nav__panel {
 }
 
 .featured-menu__cta:hover {
-  border-color: var(--color-obydullah_restaurant-burgundy);
+  border-color: var(--color-vcr-burgundy);
   transform: translateY(-2px);
   color: white;
 }
@@ -1360,8 +1360,8 @@ body.admin-bar .mobile-nav__panel {
 }
 
 .booking-form__submit:hover {
-  background-color: var(--color-obydullah_restaurant-burgundy);
-  border-color: var(--color-obydullah_restaurant-burgundy);
+  background-color: var(--color-vcr-burgundy);
+  border-color: var(--color-vcr-burgundy);
   transform: translateY(-2px);
 }
 
@@ -1960,8 +1960,8 @@ body.admin-bar .mobile-nav__panel {
 }
 
 .contact-form__submit:hover {
-  background-color: var(--color-obydullah_restaurant-burgundy);
-  border-color: var(--color-obydullah_restaurant-burgundy);
+  background-color: var(--color-vcr-burgundy);
+  border-color: var(--color-vcr-burgundy);
   transform: translateY(-2px);
 }
 

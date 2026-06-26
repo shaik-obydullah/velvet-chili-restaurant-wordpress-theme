@@ -1,6 +1,5 @@
-=== Obydullah Restaurant Theme ===
+=== Velvet Chili Restaurant ===
 Contributors: obydullah
-Donate link: https://obydullah.com
 Tags: restaurant, food, cafe, modern, responsive
 Requires at least: 6.0
 Tested up to: 7.0
@@ -12,7 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Modern restaurant WordPress theme with menu, reservations, and responsive design.
 
 == Description ==
-Obydullah Restaurant is a modern, elegant WordPress theme designed for restaurants, cafés, and food businesses. It features a clean layout, responsive design, and customizable sections including menu, testimonials, chef specials, and contact information.
+Velvet Chili Restaurant is a modern, elegant WordPress theme designed for restaurants, cafés, and food businesses. It features a clean layout, responsive design, and customizable sections including menu, testimonials, chef specials, and contact information.
 
 == Features ==
 

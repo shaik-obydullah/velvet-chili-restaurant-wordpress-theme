@@ -1,9 +1,9 @@
 /*!
  * =================================================================
- * Theme Name: Obydullah Restaurant
- * Version: 1.0.0
- * Author: Shaik Obydullah
- * Author URI: https://obydullah.com
+ * Theme Name: Velvet Chili Restaurant
+ * Description: Velvet Chili Restaurant Main JavaScript
+ * Author: Velvet Chili
+ * Author URI: https://velvetchilirestaurant.com
  * Purpose: Main JavaScript
  * =================================================================
  */

@@ -1,5 +1,5 @@
 /*
- * Obydullah Restaurant Theme – Base Stylesheet
+ * Velvet Chili Restaurant Theme – Base Stylesheet
  * ------------------------------------------------------------
  * Purpose: Core foundation styles (reset, variables, typography)
  *
@@ -18,7 +18,7 @@
 :root {
   /* Color Palette */
   --color-chili-red: #b23a2d;
-  --color-obydullah_restaurant-burgundy: #6f2b30;
+  --color-vcr-burgundy: #6f2b30;
   --color-ember-orange: #d96c4a;
   --color-charcoal: #2b2b2b;
   --color-soft-black: #1a1a1a;

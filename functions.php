@@ -1,7 +1,7 @@
 <?php
 /**
- * Theme Name: Obydullah Restaurant 
- * Description: Obydullah Restaurant Theme Functions
+ * Theme Name: Velvet Chili Restaurant 
+ * Description: Velvet Chili Restaurant Theme Functions
  *
  * ================================================================
  *                         INDEX
@@ -19,7 +19,7 @@
    1. Assets
 ====================================================== */
 
-function obydullah_restaurant_assets() {
+function velvet_chili_restaurant_assets() {
 
     wp_enqueue_style(
         'font-awesome',
@@ -29,37 +29,37 @@ function obydullah_restaurant_assets() {
     );
 
     wp_enqueue_style(
-        'obydullah-google-fonts',
+        'vcr-google-fonts',
         'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap',
         [],
         null
     );
 
     wp_enqueue_style(
-        'obydullah-base',
+        'vcr-base',
         get_template_directory_uri() . '/assets/css/base.css',
         [],
         '1.0'
     );
 
     wp_enqueue_style(
-        'obydullah-theme',
+        'vcr-theme',
         get_template_directory_uri() . '/assets/css/theme.css',
-        ['obydullah-base'],
+        ['vcr-base'],
         '1.0'
     );
 
     wp_enqueue_script(
-        'obydullah-js',
+        'vcr-js',
         get_template_directory_uri() . '/assets/js/main.js',
         [],
         '1.0',
         true
     );
 }
-add_action('wp_enqueue_scripts', 'obydullah_restaurant_assets');
+add_action('wp_enqueue_scripts', 'velvet_chili_restaurant_assets');
 
-function obirc_theme_enqueue_booking_assets() {
+function vcr_enqueue_booking_assets() {
     if ( defined( 'OBIRC_VERSION' ) ) {
         wp_enqueue_script(
             'obirc-booking',
@@ -74,13 +74,13 @@ function obirc_theme_enqueue_booking_assets() {
         ) );
     }
 }
-add_action( 'wp_enqueue_scripts', 'obirc_theme_enqueue_booking_assets' );
+add_action( 'wp_enqueue_scripts', 'vcr_enqueue_booking_assets' );
 
 
 /* ======================================================
    2. Theme Setup
 ====================================================== */
-function obydullah_restaurant_setup() {
+function velvet_chili_restaurant_setup() {
 
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -103,68 +103,68 @@ function obydullah_restaurant_setup() {
     ]);
 
     register_nav_menus([
-        'primary' => __('Primary Menu', 'obydullah-restaurant'),
+        'primary' => __('Primary Menu', 'velvet-chili-restaurant'),
     ]);
 }
-add_action('after_setup_theme', 'obydullah_restaurant_setup');
+add_action('after_setup_theme', 'velvet_chili_restaurant_setup');
 
 
 /* ======================================================
    3. Sidebar / Widget Area
 ====================================================== */
-function obydullah_restaurant_widgets_init() {
+function velvet_chili_restaurant_widgets_init() {
 
     register_sidebar([
-        'name'          => __('Sidebar', 'obydullah-restaurant'),
+        'name'          => __('Sidebar', 'velvet-chili-restaurant'),
         'id'            => 'sidebar-1',
-        'description'   => __('Main sidebar area', 'obydullah-restaurant'),
+        'description'   => __('Main sidebar area', 'velvet-chili-restaurant'),
         'before_widget' => '<div class="widget">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
     ]);
 }
-add_action('widgets_init', 'obydullah_restaurant_widgets_init');
+add_action('widgets_init', 'velvet_chili_restaurant_widgets_init');
 
 
 /* ======================================================
  *  4. Fallback Menus
  * ====================================================== */
-function obirc_primary_menu_fallback() {
+function vcr_primary_menu_fallback() {
     ?>
 <ul class="nav__list">
     <li class="nav__item">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="nav__link nav__link--active">
-            <?php esc_html_e( 'Home', 'obydullah-restaurant' ); ?>
+            <?php esc_html_e( 'Home', 'velvet-chili-restaurant' ); ?>
         </a>
     </li>
     <li class="nav__item"><a href="#chefSpecial" class="nav__link">
-            <?php esc_html_e( 'Chef Special', 'obydullah-restaurant' ); ?></a></li>
+            <?php esc_html_e( 'Chef Special', 'velvet-chili-restaurant' ); ?></a></li>
     <li class="nav__item"><a href="#ourMenu" class="nav__link">
-            <?php esc_html_e( 'Our Menu', 'obydullah-restaurant' ); ?></a></li>
+            <?php esc_html_e( 'Our Menu', 'velvet-chili-restaurant' ); ?></a></li>
     <li class="nav__item"><a href="#testimonials" class="nav__link">
-            <?php esc_html_e( 'Testimonials', 'obydullah-restaurant' ); ?></a></li>
+            <?php esc_html_e( 'Testimonials', 'velvet-chili-restaurant' ); ?></a></li>
     <li class="nav__item"><a href="#book" class="nav__link nav__link--cta">
-            <?php esc_html_e( 'Book A Table', 'obydullah-restaurant' ); ?></a></li>
+            <?php esc_html_e( 'Book A Table', 'velvet-chili-restaurant' ); ?></a></li>
 </ul>
 <?php
 }
 
-function obirc_mobile_menu_fallback() {
+function vcr_mobile_menu_fallback() {
     ?>
 <ul class="mobile-nav__list">
     <li class="mobile-nav__item">
         <a href="<?php echo esc_url(home_url('/')); ?>"
-            class="mobile-nav__link mobile-nav__link--active"><?php esc_html_e( 'Home', 'obydullah-restaurant' ); ?></a>
+            class="mobile-nav__link mobile-nav__link--active"><?php esc_html_e( 'Home', 'velvet-chili-restaurant' ); ?></a>
     </li>
     <li class="mobile-nav__item"><a href="#chefSpecial"
-            class="mobile-nav__link"><?php esc_html_e( 'Chef Special', 'obydullah-restaurant' ); ?></a></li>
+            class="mobile-nav__link"><?php esc_html_e( 'Chef Special', 'velvet-chili-restaurant' ); ?></a></li>
     <li class="mobile-nav__item"><a href="#ourMenu"
-            class="mobile-nav__link"><?php esc_html_e( 'Our Menu', 'obydullah-restaurant' ); ?></a></li>
+            class="mobile-nav__link"><?php esc_html_e( 'Our Menu', 'velvet-chili-restaurant' ); ?></a></li>
     <li class="mobile-nav__item"><a href="#testimonials"
-            class="mobile-nav__link"><?php esc_html_e( 'Testimonials', 'obydullah-restaurant' ); ?></a></li>
+            class="mobile-nav__link"><?php esc_html_e( 'Testimonials', 'velvet-chili-restaurant' ); ?></a></li>
     <li class="mobile-nav__item"><a href="#book"
-            class="mobile-nav__link mobile-nav__link--cta"><?php esc_html_e( 'Book A Table', 'obydullah-restaurant' ); ?></a>
+            class="mobile-nav__link mobile-nav__link--cta"><?php esc_html_e( 'Book A Table', 'velvet-chili-restaurant' ); ?></a>
     </li>
 </ul>
 <?php
@@ -174,42 +174,42 @@ function obirc_mobile_menu_fallback() {
  *  5. Customizer Settings
  * ====================================================== */
 
-function obydullah_restaurant_customize_register($wp_customize) {
+function velvet_chili_restaurant_customize_register($wp_customize) {
 
-    $wp_customize->add_section('obydullah_restaurant_contact_info', [
-        'title'    => __('Contact Info', 'obydullah-restaurant'),
+    $wp_customize->add_section('velvet_chili_restaurant_contact_info', [
+        'title'    => __('Contact Info', 'velvet-chili-restaurant'),
         'priority' => 30,
     ]);
 
-    $wp_customize->add_setting('obydullah_restaurant_phone', [
+    $wp_customize->add_setting('velvet_chili_restaurant_phone', [
         'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
     ]);
 
-    $wp_customize->add_control('obydullah_restaurant_phone', [
-        'label'   => __('Phone Number', 'obydullah-restaurant'),
-        'section' => 'obydullah_restaurant_contact_info',
+    $wp_customize->add_control('velvet_chili_restaurant_phone', [
+        'label'   => __('Phone Number', 'velvet-chili-restaurant'),
+        'section' => 'velvet_chili_restaurant_contact_info',
         'type'    => 'text',
     ]);
 
-    $wp_customize->add_setting('obydullah_restaurant_hours', [
+    $wp_customize->add_setting('velvet_chili_restaurant_hours', [
         'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
     ]);
 
-    $wp_customize->add_control('obydullah_restaurant_hours', [
-        'label'   => __('Opening Hours', 'obydullah-restaurant'),
-        'section' => 'obydullah_restaurant_contact_info',
+    $wp_customize->add_control('velvet_chili_restaurant_hours', [
+        'label'   => __('Opening Hours', 'velvet-chili-restaurant'),
+        'section' => 'velvet_chili_restaurant_contact_info',
         'type'    => 'text',
     ]);
 }
-add_action('customize_register', 'obydullah_restaurant_customize_register');
+add_action('customize_register', 'velvet_chili_restaurant_customize_register');
 
 
 /* ======================================================
  *  6. Admin Notice
  * ====================================================== */
-function obydullah_restaurant_admin_notice() {
+function velvet_chili_restaurant_admin_notice() {
     $screen = get_current_screen();
     if ( $screen && $screen->base !== 'themes' ) {
         return;
@@ -223,25 +223,25 @@ function obydullah_restaurant_admin_notice() {
     }
     ?>
 <div class="notice notice-info is-dismissible">
-    <p><strong><?php esc_html_e( 'Obydullah Restaurant Theme', 'obydullah-restaurant' ); ?></strong> —
-        <?php esc_html_e( 'Install recommended plugins:', 'obydullah-restaurant' ); ?></p>
+    <p><strong><?php esc_html_e( 'Velvet Chili Restaurant Theme', 'velvet-chili-restaurant' ); ?></strong> —
+        <?php esc_html_e( 'Install recommended plugins:', 'velvet-chili-restaurant' ); ?></p>
     <ul style="list-style: disc; margin-left: 1.5em;">
         <?php if ( ! $core_active ) : ?>
-        <li><strong>Obydullah Restaurant Core</strong> –
-            <?php esc_html_e( 'menu & testimonials system', 'obydullah-restaurant' ); ?></li>
+        <li><strong>Velvet Chili Restaurant Core</strong> –
+            <?php esc_html_e( 'menu & testimonials system', 'velvet-chili-restaurant' ); ?></li>
         <?php endif; ?>
         <?php if ( ! $cf7_active ) : ?>
         <li><strong>Contact Form 7</strong> –
-            <?php esc_html_e( 'contact form support', 'obydullah-restaurant' ); ?></li>
+            <?php esc_html_e( 'contact form support', 'velvet-chili-restaurant' ); ?></li>
         <?php endif; ?>
     </ul>
     <p>
-        <a href="<?php echo esc_url( admin_url( 'plugin-install.php?s=obydullah+restaurant+core&tab=search&type=term' ) ); ?>"
+        <a href="<?php echo esc_url( admin_url( 'plugin-install.php?s=velvet+chili+restaurant+core&tab=search&type=term' ) ); ?>"
             class="button button-primary">
-            <?php esc_html_e( 'Install Plugins', 'obydullah-restaurant' ); ?>
+            <?php esc_html_e( 'Install Plugins', 'velvet-chili-restaurant' ); ?>
         </a>
     </p>
 </div>
 <?php
 }
-add_action( 'admin_notices', 'obydullah_restaurant_admin_notice' );
+add_action( 'admin_notices', 'velvet_chili_restaurant_admin_notice' );

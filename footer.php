@@ -2,7 +2,7 @@
 /**
  * Footer Section – fully dynamic from footer_settings CPT
  */
-function obirc_static_footer() {
+function vcr_static_footer() {
     ?>
 <footer class="site-footer" id="siteFooter">
     <div class="site-footer__container">
@@ -11,8 +11,8 @@ function obirc_static_footer() {
             <div class="site-footer__col site-footer__col--about">
                 <a href="#" class="site-footer__logo">
                     <span class="site-footer__logo-icon"><i class="fa-solid fa-pepper-hot"></i></span>
-                    <span class="site-footer__logo-text">Obydullah<span
-                            class="site-footer__logo-accent">Restaurant</span></span>
+                    <span class="site-footer__logo-text">Velvet<span
+                            class="site-footer__logo-accent">Chili</span></span>
                 </a>
                 <p class="site-footer__desc">A modern dining experience built around the soul of the chili pepper.
                     Slow‑cooked, bold, and unforgettable.</p>
@@ -42,7 +42,7 @@ function obirc_static_footer() {
                             10012</span></li>
                     <li><i class="fa-solid fa-phone"></i><a href="tel:+15551234567">(555) 123-4567</a></li>
                     <li><i class="fa-regular fa-envelope"></i><a
-                            href="mailto:hello@obydullahrestaurant.com">hello@obydullahrestaurant.com</a></li>
+                            href="mailto:hello@velvetchilirestaurant.com">hello@velvetchilirestaurant.com</a></li>
                 </ul>
             </div>
             <!-- Column 4: Opening Hours -->
@@ -59,7 +59,7 @@ function obirc_static_footer() {
         <!-- Copyright -->
         <div class="site-footer__bottom">
             <div class="site-footer__copyright">
-                <p>&copy; <?php echo date('Y') ?> Obydullah Restaurant Theme — Where Warmth Meets Flavor. All rights
+                <p>&copy; <?php echo date('Y') ?> Velvet Chili Restaurant — Where Warmth Meets Flavor. All rights
                     reserved.</p>
             </div>
         </div>
@@ -70,7 +70,7 @@ function obirc_static_footer() {
 
 // If plugin not active → static footer
 if ( ! defined( 'OBIRC_VERSION' ) ) {
-    obirc_static_footer();
+        vcr_static_footer();
 } else {
     // Retrieve dynamic data from the Footer Settings CPT
     $footer_posts = get_posts( array(
@@ -80,7 +80,7 @@ if ( ! defined( 'OBIRC_VERSION' ) ) {
     ) );
 
     if ( empty( $footer_posts ) ) {
-        obirc_static_footer();
+    vcr_static_footer();
     } else {
         $footer_id = $footer_posts[0]->ID;
 
@@ -96,10 +96,10 @@ if ( ! defined( 'OBIRC_VERSION' ) ) {
         $copyright   = get_post_meta( $footer_id, 'obirc_footer_copyright', true );
 
         // Fallbacks (only if needed)
-        $logo_text   = $logo_text ?: 'Obydullah';
+        $logo_text   = $logo_text ?: 'Velvet';
         $logo_accent = $logo_accent ?: 'Restaurant';
         $tagline     = $tagline ?: 'A modern dining experience built around the soul of the chili pepper. Slow‑cooked, bold, and unforgettable.';
-        $copyright   = $copyright ?: '&copy; ' . date('Y') . ' Obydullah Restaurant Theme. All rights reserved.';
+        $copyright   = $copyright ?: '&copy; ' . date('Y') . ' Velvet Chili Restaurant. All rights reserved.';
         ?>
 <footer class="site-footer" id="siteFooter">
     <div class="site-footer__container">
@@ -130,7 +130,7 @@ if ( ! defined( 'OBIRC_VERSION' ) ) {
 
             <!-- Column 2: Quick Links -->
             <div class="site-footer__col site-footer__col--links">
-                <h4 class="site-footer__heading"><?php esc_html_e( 'Quick Links', 'obydullah-restaurant' ); ?></h4>
+                <h4 class="site-footer__heading"><?php esc_html_e( 'Quick Links', 'velvet-chili-restaurant' ); ?></h4>
                 <?php if ( ! empty( $links ) ) : ?>
                 <ul class="site-footer__links">
                     <?php foreach ( $links as $link ) : ?>
@@ -143,7 +143,7 @@ if ( ! defined( 'OBIRC_VERSION' ) ) {
 
             <!-- Column 3: Contact -->
             <div class="site-footer__col site-footer__col--contact">
-                <h4 class="site-footer__heading"><?php esc_html_e( 'Contact', 'obydullah-restaurant' ); ?></h4>
+                <h4 class="site-footer__heading"><?php esc_html_e( 'Contact', 'velvet-chili-restaurant' ); ?></h4>
                 <ul class="site-footer__contact">
                     <?php if ( ! empty( $address ) ) : ?>
                     <li><i

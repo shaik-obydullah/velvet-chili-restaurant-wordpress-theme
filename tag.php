@@ -13,7 +13,7 @@ get_header(); ?>
             <h1 class="archive-title">
                 <?php
                 printf(
-                    esc_html__( 'Tag: %s', 'obydullah-restaurant' ),
+                    esc_html__( 'Tag: %s', 'velvet-chili-restaurant' ),
                     '<span>' . single_tag_title( '', false ) . '</span>'
                 );
                 ?>
@@ -33,7 +33,7 @@ get_header(); ?>
             <?php the_posts_pagination(); ?>
         </div>
         <?php else : ?>
-        <p><?php esc_html_e( 'No posts found.', 'obydullah-restaurant' ); ?></p>
+        <p><?php esc_html_e( 'No posts found.', 'velvet-chili-restaurant' ); ?></p>
         <?php endif; ?>
 
     </div>

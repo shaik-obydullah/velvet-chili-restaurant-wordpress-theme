@@ -8,7 +8,7 @@ get_header(); ?>
             <h1 class="search-title">
                 <?php
                 printf(
-                    esc_html__( 'Search Results for: %s', 'obydullah-restaurant' ),
+                    esc_html__( 'Search Results for: %s', 'velvet-chili-restaurant' ),
                     '<span>' . get_search_query() . '</span>'
                 );
                 ?>
@@ -18,7 +18,7 @@ get_header(); ?>
             <p class="search-results-count">
                 <?php
                     printf(
-                        esc_html( _n( '%d result found', '%d results found', $wp_query->found_posts, 'obydullah-restaurant' ) ),
+                        esc_html( _n( '%d result found', '%d results found', $wp_query->found_posts, 'velvet-chili-restaurant' ) ),
                         $wp_query->found_posts
                     );
                     ?>
@@ -38,8 +38,8 @@ get_header(); ?>
             <?php
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => __( '&laquo; Previous', 'obydullah-restaurant' ),
-                    'next_text' => __( 'Next &raquo;', 'obydullah-restaurant' ),
+                    'prev_text' => __( '&laquo; Previous', 'velvet-chili-restaurant' ),
+                    'next_text' => __( 'Next &raquo;', 'velvet-chili-restaurant' ),
                 ) );
                 ?>
         </div>
@@ -48,9 +48,9 @@ get_header(); ?>
 
         <div class="no-results">
             <span class="no-results-icon">🔍</span>
-            <h2 class="no-results-title"><?php esc_html_e( 'No Results Found', 'obydullah-restaurant' ); ?></h2>
+            <h2 class="no-results-title"><?php esc_html_e( 'No Results Found', 'velvet-chili-restaurant' ); ?></h2>
             <p class="no-results-message">
-                <?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'obydullah-restaurant' ); ?>
+                <?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'velvet-chili-restaurant' ); ?>
             </p>
             <?php get_search_form(); ?>
         </div>

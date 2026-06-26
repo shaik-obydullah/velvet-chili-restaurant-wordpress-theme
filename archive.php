@@ -32,15 +32,15 @@ get_header(); ?>
             <?php
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => __( '&laquo; Previous', 'obydullah-restaurant' ),
-                    'next_text' => __( 'Next &raquo;', 'obydullah-restaurant' ),
+                    'prev_text' => __( '&laquo; Previous', 'velvet-chili-restaurant' ),
+                    'next_text' => __( 'Next &raquo;', 'velvet-chili-restaurant' ),
                 ) );
                 ?>
         </div>
 
         <?php else : ?>
 
-        <p class="no-content"><?php esc_html_e( 'No content found.', 'obydullah-restaurant' ); ?></p>
+        <p class="no-content"><?php esc_html_e( 'No content found.', 'velvet-chili-restaurant' ); ?></p>
 
         <?php endif; ?>
 

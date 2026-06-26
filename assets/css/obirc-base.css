@@ -1,9 +1,9 @@
 /*!
  * =================================================================
- * Theme Name: Obydullah Restaurant
- * Version: 1.0.3
- * Author: Shaik Obydullah
- * Author URI: https://obydullah.com
+ * Theme Name: Velvet Chili Restaurant
+ * Description: Velvet Chili Restaurant Base Stylesheet
+ * Author: Velvet Chili
+ * Author URI: https://velvetchilirestaurant.com
  * Purpose: Core foundation styles (reset, variables, typography)
  * =================================================================
  */
@@ -26,7 +26,7 @@
 :root {
   /* Color Palette */
   --color-chili-red: #b23a2d;
-  --color-obydullah_restaurant-burgundy: #6f2b30;
+  --color-vcr-burgundy: #6f2b30;
   --color-ember-orange: #d96c4a;
   --color-charcoal: #2b2b2b;
   --color-soft-black: #1a1a1a;

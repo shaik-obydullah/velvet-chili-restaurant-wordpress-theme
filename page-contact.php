@@ -25,7 +25,7 @@ $title    = 'Contact Us';
 $subtitle = 'We\'d love to hear from you. Reach out for reservations, private events, or just to say hello.';
 $address  = '427 Spice Avenue, Gastronomy District, NY 10012';
 $phone    = '(555) 123-4567';
-$email    = 'hello@obydullahrestaurant.com';
+$email    = 'hello@velvetchilirestaurant.com';
 $map_url  = '';
 $form_shortcode = '';
 
@@ -53,7 +53,7 @@ if ( defined( 'OBIRC_VERSION' ) ) {
         // Fallback for empty fields
         $address  = $address ?: '427 Spice Avenue, Gastronomy District, NY 10012';
         $phone    = $phone ?: '(555) 123-4567';
-        $email    = $email ?: 'hello@obydullahrestaurant.com';
+        $email    = $email ?: 'hello@velvetchilirestaurant.com';
     }
 }
 
@@ -77,18 +77,18 @@ $display_form = $form_shortcode ?: ( $cf7_active ? obirc_get_first_cf7_shortcode
                 <?php echo do_shortcode( $display_form ); ?>
                 <?php elseif ( $cf7_active && empty( $display_form ) ) : ?>
                 <div class="cf7-notice">
-                    <p><strong><?php esc_html_e( 'No contact form found.', 'obydullah-restaurant' ); ?></strong></p>
-                    <p><?php esc_html_e( 'Please create a form in Contact Form 7 → Add New, then publish it.', 'obydullah-restaurant' ); ?>
+                    <p><strong><?php esc_html_e( 'No contact form found.', 'velvet-chili-restaurant' ); ?></strong></p>
+                    <p><?php esc_html_e( 'Please create a form in Contact Form 7 → Add New, then publish it.', 'velvet-chili-restaurant' ); ?>
                     </p>
                 </div>
                 <?php else : ?>
                 <div class="cf7-notice">
-                    <p><strong><?php esc_html_e( 'Contact Form 7 plugin is not active.', 'obydullah-restaurant' ); ?></strong>
+                    <p><strong><?php esc_html_e( 'Contact Form 7 plugin is not active.', 'velvet-chili-restaurant' ); ?></strong>
                     </p>
-                    <p><?php esc_html_e( 'To use this contact form, please install and activate the free Contact Form 7 plugin from the WordPress plugin repository.', 'obydullah-restaurant' ); ?>
+                    <p><?php esc_html_e( 'To use this contact form, please install and activate the free Contact Form 7 plugin from the WordPress plugin repository.', 'velvet-chili-restaurant' ); ?>
                     </p>
                     <p><a href="<?php echo esc_url( admin_url( 'plugin-install.php?s=contact+form+7&tab=search&type=term' ) ); ?>"
-                            target="_blank"><?php esc_html_e( 'Install Contact Form 7 →', 'obydullah-restaurant' ); ?></a>
+                            target="_blank"><?php esc_html_e( 'Install Contact Form 7 →', 'velvet-chili-restaurant' ); ?></a>
                     </p>
                 </div>
                 <?php endif; ?>
@@ -98,7 +98,7 @@ $display_form = $form_shortcode ?: ( $cf7_active ? obirc_get_first_cf7_shortcode
             <div class="contact-page__info">
                 <div class="contact-info">
                     <h3 class="contact-info__title">
-                        <?php esc_html_e( 'Obydullah Restaurant', 'obydullah-restaurant' ); ?></h3>
+                        <?php esc_html_e( 'Velvet Chili Restaurant', 'velvet-chili-restaurant' ); ?></h3>
                     <ul class="contact-info__list">
                         <li><i class="fa-solid fa-location-dot"></i> <span><?php echo esc_html( $address ); ?></span>
                         </li>

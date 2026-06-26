@@ -15,20 +15,20 @@ function obirc_static_about_page() {
 <section class="about-page" id="about">
     <div class="about-page__container">
         <div class="about-page__header text-center">
-            <span class="about-page__kicker"><?php esc_html_e( 'Our Story', 'obydullah-restaurant' ); ?></span>
+            <span class="about-page__kicker"><?php esc_html_e( 'Our Story', 'velvet-chili-restaurant' ); ?></span>
             <h2 class="about-page__title">
-                <?php esc_html_e( 'The Heart of Obydullah Restaurant', 'obydullah-restaurant' ); ?></h2>
+                <?php esc_html_e( 'The Heart of Velvet Chili Restaurant', 'velvet-chili-restaurant' ); ?></h2>
         </div>
         <div class="about-page__grid">
             <div class="about-page__text">
                 <h3 class="about-page__subtitle">
-                    <?php esc_html_e( 'Meet Chef Elena Vasquez', 'obydullah-restaurant' ); ?></h3>
+                    <?php esc_html_e( 'Meet Chef Elena Vasquez', 'velvet-chili-restaurant' ); ?></h3>
                 <p class="about-page__body">
-                    <?php esc_html_e( 'With over twenty‑five years of experience, Chef Elena has honed her craft in the bustling markets of Oaxaca and the refined kitchens of Europe. Her passion lies in transforming humble chili peppers into complex, soul‑warming dishes that surprise and delight. Every plate she creates tells a story of fire, patience, and a deep respect for ingredients.', 'obydullah-restaurant' ); ?>
+                    <?php esc_html_e( 'With over twenty‑five years of experience, Chef Elena has honed her craft in the bustling markets of Oaxaca and the refined kitchens of Europe. Her passion lies in transforming humble chili peppers into complex, soul‑warming dishes that surprise and delight. Every plate she creates tells a story of fire, patience, and a deep respect for ingredients.', 'velvet-chili-restaurant' ); ?>
                 </p>
-                <h3 class="about-page__subtitle"><?php esc_html_e( 'Our Philosophy', 'obydullah-restaurant' ); ?></h3>
+                <h3 class="about-page__subtitle"><?php esc_html_e( 'Our Philosophy', 'velvet-chili-restaurant' ); ?></h3>
                 <p class="about-page__body">
-                    <?php esc_html_e( 'At Obydullah Restaurant, we believe that great food is about balance – heat and sweetness, tradition and innovation, comfort and elegance. We source our chilies from small family farms, slow‑cook our meats for hours, and treat every guest like family. Dining here is not just a meal; it’s a journey through the rich tapestry of chili culture.', 'obydullah-restaurant' ); ?>
+                    <?php esc_html_e( 'At Velvet Chili Restaurant, we believe that great food is about balance – heat and sweetness, tradition and innovation, comfort and elegance. We source our chilies from small family farms, slow‑cook our meats for hours, and treat every guest like family. Dining here is not just a meal; it’s a journey through the rich tapestry of chili culture.', 'velvet-chili-restaurant' ); ?>
                 </p>
             </div>
             <div class="about-page__slider">
@@ -43,9 +43,9 @@ function obirc_static_about_page() {
                             <div class="event-slider__overlay"></div>
                             <div class="event-slider__content">
                                 <h3 class="event-slider__title">
-                                    <?php esc_html_e( 'Private Dining', 'obydullah-restaurant' ); ?></h3>
+                                    <?php esc_html_e( 'Private Dining', 'velvet-chili-restaurant' ); ?></h3>
                                 <p class="event-slider__subtitle">
-                                    <?php esc_html_e( 'Intimate celebrations in our candlelit cellar', 'obydullah-restaurant' ); ?>
+                                    <?php esc_html_e( 'Intimate celebrations in our candlelit cellar', 'velvet-chili-restaurant' ); ?>
                                 </p>
                             </div>
                         </div>
@@ -56,9 +56,9 @@ function obirc_static_about_page() {
                             <div class="event-slider__overlay"></div>
                             <div class="event-slider__content">
                                 <h3 class="event-slider__title">
-                                    <?php esc_html_e( 'Wine Pairing Nights', 'obydullah-restaurant' ); ?></h3>
+                                    <?php esc_html_e( 'Wine Pairing Nights', 'velvet-chili-restaurant' ); ?></h3>
                                 <p class="event-slider__subtitle">
-                                    <?php esc_html_e( 'Every Thursday with our sommelier', 'obydullah-restaurant' ); ?>
+                                    <?php esc_html_e( 'Every Thursday with our sommelier', 'velvet-chili-restaurant' ); ?>
                                 </p>
                             </div>
                         </div>
@@ -69,9 +69,9 @@ function obirc_static_about_page() {
                             <div class="event-slider__overlay"></div>
                             <div class="event-slider__content">
                                 <h3 class="event-slider__title">
-                                    <?php esc_html_e( 'Chili Masterclass', 'obydullah-restaurant' ); ?></h3>
+                                    <?php esc_html_e( 'Chili Masterclass', 'velvet-chili-restaurant' ); ?></h3>
                                 <p class="event-slider__subtitle">
-                                    <?php esc_html_e( 'Learn the art of smoke & spice', 'obydullah-restaurant' ); ?></p>
+                                    <?php esc_html_e( 'Learn the art of smoke & spice', 'velvet-chili-restaurant' ); ?></p>
                             </div>
                         </div>
                     </div>
@@ -142,10 +142,10 @@ if ( empty( $kicker ) || empty( $title ) || empty( $chef ) || empty( $phil ) || 
             <!-- Left column: text (dynamic) -->
             <div class="about-page__text">
                 <h3 class="about-page__subtitle">
-                    <?php esc_html_e( 'Meet Chef Elena Vasquez', 'obydullah-restaurant' ); ?></h3>
+                    <?php esc_html_e( 'Meet Chef Elena Vasquez', 'velvet-chili-restaurant' ); ?></h3>
                 <p class="about-page__body"><?php echo nl2br( esc_html( $chef ) ); ?></p>
 
-                <h3 class="about-page__subtitle"><?php esc_html_e( 'Our Philosophy', 'obydullah-restaurant' ); ?></h3>
+                <h3 class="about-page__subtitle"><?php esc_html_e( 'Our Philosophy', 'velvet-chili-restaurant' ); ?></h3>
                 <p class="about-page__body"><?php echo nl2br( esc_html( $phil ) ); ?></p>
             </div>
 

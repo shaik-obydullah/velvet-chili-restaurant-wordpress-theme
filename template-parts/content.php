@@ -44,7 +44,7 @@
 
         <footer class="post-item__footer">
             <a href="<?php the_permalink(); ?>" class="post-item__read-more">
-                <?php esc_html_e( 'Read More', 'obydullah-restaurant' ); ?>
+                <?php esc_html_e( 'Read More', 'velvet-chili-restaurant' ); ?>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
         </footer>

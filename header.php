@@ -105,11 +105,11 @@
                 <div class="mobile-nav__info">
                     <p class="mobile-nav__phone">
                         <i class="fa-solid fa-phone"></i>
-                        <?php echo esc_html( get_theme_mod('obydullah_restaurant_phone', '(555) 123-4567') ); ?>
+                        <?php echo esc_html( get_theme_mod('velvet_chili_restaurant_phone', '(555) 123-4567') ); ?>
                     </p>
                     <p class="mobile-nav__hours">
                         <i class="fa-regular fa-clock"></i>
-                        <?php echo esc_html( get_theme_mod('obydullah_restaurant_hours', 'Tue–Sun 5pm–11pm') ); ?>
+                        <?php echo esc_html( get_theme_mod('velvet_chili_restaurant_hours', 'Tue–Sun 5pm–11pm') ); ?>
                     </p>
                 </div>
             </nav>

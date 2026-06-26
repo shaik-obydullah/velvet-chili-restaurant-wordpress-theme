@@ -8,7 +8,7 @@ get_header();
 
 // If plugin not active, show a simple message
 if ( ! defined( 'OBIRC_VERSION' ) ) {
-    echo '<div class="full-menu"><div class="full-menu__container"><p>' . esc_html__( 'Please activate the Obydullah Restaurant Core plugin to see the full menu.', 'obydullah-restaurant' ) . '</p></div></div>';
+    echo '<div class="full-menu"><div class="full-menu__container"><p>' . esc_html__( 'Please activate the Velvet Chili Restaurant Core plugin to see the full menu.', 'velvet-chili-restaurant' ) . '</p></div></div>';
     get_footer();
     return;
 }
@@ -24,16 +24,16 @@ $area_posts = get_posts( array(
 
 if ( empty( $area_posts ) ) {
     // Fallback static header if no menu_area post exists
-    $title   = esc_html__( 'The Obydullah Restaurant Menu', 'obydullah-restaurant' );
-    $subtitle = esc_html__( 'Every dish celebrates the chili in all its forms – smoked, dried, fresh, and roasted.', 'obydullah-restaurant' );
+    $title   = esc_html__( 'The Velvet Chili Restaurant Menu', 'velvet-chili-restaurant' );
+    $subtitle = esc_html__( 'Every dish celebrates the chili in all its forms – smoked, dried, fresh, and roasted.', 'velvet-chili-restaurant' );
 } else {
     $area_id   = $area_posts[0]->ID;
     $title     = get_the_title( $area_id );
     $subtitle  = get_post_meta( $area_id, 'obirc_menu_area_subtitle', true );
 
     // Fallbacks if fields are empty
-    $title     = $title ?: esc_html__( 'The Obydullah Restaurant Menu', 'obydullah-restaurant' );
-    $subtitle  = $subtitle ?: esc_html__( 'Every dish celebrates the chili in all its forms – smoked, dried, fresh, and roasted.', 'obydullah-restaurant' );
+    $title     = $title ?: esc_html__( 'The Velvet Chili Restaurant Menu', 'velvet-chili-restaurant' );
+    $subtitle  = $subtitle ?: esc_html__( 'Every dish celebrates the chili in all its forms – smoked, dried, fresh, and roasted.', 'velvet-chili-restaurant' );
 }
 
 // -------------------------------------------------------------
@@ -47,7 +47,7 @@ $categories = get_terms( array(
 ) );
 
 if ( empty( $categories ) || is_wp_error( $categories ) ) {
-    echo '<div class="full-menu"><div class="full-menu__container"><p>' . esc_html__( 'No menu items found. Please create categories and assign menu items.', 'obydullah-restaurant' ) . '</p></div></div>';
+    echo '<div class="full-menu"><div class="full-menu__container"><p>' . esc_html__( 'No menu items found. Please create categories and assign menu items.', 'velvet-chili-restaurant' ) . '</p></div></div>';
     get_footer();
     return;
 }
@@ -58,7 +58,7 @@ if ( empty( $categories ) || is_wp_error( $categories ) ) {
         <!-- Section header (dynamic from Menu Area) -->
         <div class="full-menu__header text-center">
             <span
-                class="featured-menu__kicker"><?php esc_html_e( 'From Our Kitchen', 'obydullah-restaurant' ); ?></span>
+                class="featured-menu__kicker"><?php esc_html_e( 'From Our Kitchen', 'velvet-chili-restaurant' ); ?></span>
             <h2 class="full-menu__title"><?php echo esc_html( $title ); ?></h2>
             <p class="full-menu__subtitle"><?php echo esc_html( $subtitle ); ?></p>
         </div>
@@ -103,7 +103,7 @@ if ( empty( $categories ) || is_wp_error( $categories ) ) {
 
         <div class="full-menu__footer text-center">
             <p class="full-menu__note">
-                <?php esc_html_e( '*All prices are subject to change. Ask your server about daily specials.', 'obydullah-restaurant' ); ?>
+                <?php esc_html_e( '*All prices are subject to change. Ask your server about daily specials.', 'velvet-chili-restaurant' ); ?>
             </p>
         </div>
     </div>
